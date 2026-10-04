@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dinesh Ausaramal — Computer Science & Business Systems | Software Developer</title>
+  <meta name="description" content="Portfolio of Dinesh Ausaramal, 2nd-year CSBS student at KIT College of Engineering, Kolhapur. Focused on DSA in Java, full-stack web development, and algorithmic systems.">
+  <meta name="theme-color" content="#07080a">
+  
+  <!-- Modern Google Fonts: Space Grotesk (Display), Inter (Body), JetBrains Mono (Technical) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Fixed Scroll Progress Indicator -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Cursor Ambient Spotlight (Desktop Only) -->
+  <div id="cursor-spotlight" aria-hidden="true"></div>
+
+  <!-- ==========================================================================
+       SITE HEADER / FLOATING NAVIGATION
+       ========================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <a href="#hero" class="nav-brand" aria-label="Dinesh Ausaramal - Home">
+        <span class="brand-badge">DA</span>
+        <span>Dinesh Ausaramal</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#hackathon" class="nav-link">Hackathon</a></li>
+          <li><a href="#journey" class="nav-link">Journey</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="cmd-palette-btn" id="cmd-palette-trigger" aria-label="Open Command Palette (Ctrl+K)" title="Quick Actions & Search (Ctrl+K)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <kbd>⌘K</kbd>
+        </button>
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="btn btn-secondary btn-sm" data-open-resume aria-label="View Resume">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <span>Resume</span>
+        </button>
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Open Navigation Menu" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop" aria-hidden="true"></div>
+  <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
+    <div>
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <span class="nav-brand">
+          <span class="brand-badge">DA</span>
+          <span>Dinesh Ausaramal</span>
+        </span>
+        <button class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Close menu">✕</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#hackathon">Hackathon</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-subtle);">
+        <span style="font-size: 0.85rem; color: var(--text-muted);">Interface Theme</span>
+        <button class="theme-toggle-btn" id="theme-toggle-mobile" aria-label="Toggle theme">
+          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 24px;">
+      <button class="btn btn-primary" style="width: 100%;" data-open-resume>View Resume</button>
+      <a href="resume.html" target="_blank" class="btn btn-secondary" style="width: 100%; font-size: 0.85rem;">Download PDF</a>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       1. HERO SECTION
+       ========================================================================== -->
+  <section id="hero" class="hero-section">
+    <!-- Interactive Constellation Particles Canvas -->
+    <canvas id="hero-canvas" class="hero-canvas" aria-hidden="true"></canvas>
+
+    <div class="container">
+      <div class="hero-grid">
+        
+        <!-- Left: Editorial Identity & Pitch -->
+        <div class="hero-content reveal">
+          <div class="hero-status">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span>Open to Internship Opportunities</span>
+          </div>
+
+          <h1 class="hero-title">
+            Hi, I'm <span class="name-highlight">Dinesh</span>.
+          </h1>
+
+          <p class="hero-subtitle">
+            <strong>Computer Science & Business Systems</strong> student building toward software development.
+          </p>
+
+          <!-- Interactive Typing Cycler -->
+          <div class="hero-cycler" aria-label="Professional focus">
+            <span class="prompt-arrow">❯</span>
+            <span id="typing-text" class="typing-text">Software Developer</span>
+          </div>
+
+          <!-- Action CTA Buttons -->
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">
+              <span>Explore My Work</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="resume.html" target="_blank" class="btn btn-secondary">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Download Resume</span>
+            </a>
+          </div>
+
+          <!-- Social Links -->
+          <div class="hero-socials">
+            <a href="https://github.com/mrdineshausaramal-maker" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Dinesh on GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              <span>GitHub</span>
+            </a>
+            <a href="https://www.linkedin.com/in/dinesh-ausaramal-25290b387" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Dinesh on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Abstract Developer Artifact (Interactive Precision Code Window) -->
+        <div class="hero-artifact reveal reveal-delay-1">
+          <!-- Floating Badge Top Right -->
+          <div class="hero-floating-card card-pos-1">
+            <div class="floating-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <div class="floating-meta">
+              <div class="title">CSBS • 2nd Year</div>
+              <div class="desc">KIT College of Engineering</div>
+            </div>
+          </div>
+
+          <!-- Floating Badge Right Center (GitHub & Dev Activity) -->
+          <div class="hero-floating-card card-pos-3">
+            <div class="floating-icon" style="background: rgba(16, 185, 129, 0.12); color: #10b981;">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            </div>
+            <div class="floating-meta">
+              <div class="title">Developer Activity</div>
+              <div class="desc"><span class="commit-sparkle">●</span> Java DSA & Web Stack</div>
+            </div>
+          </div>
+
+          <!-- Main Interactive Code Window -->
+          <div class="code-window" id="code-window">
+            <div class="code-header">
+              <div class="window-dots">
+                <span class="dot-red"></span>
+                <span class="dot-yellow"></span>
+                <span class="dot-green"></span>
+              </div>
+              <div class="code-tabs">
+                <button class="code-tab active" data-lang="java">LoadLoopMatcher.java</button>
+                <button class="code-tab" data-lang="sql">route_query.sql</button>
+                <button class="code-tab" data-lang="sh">sys_status.sh</button>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span class="code-lang-tag" id="code-lang-tag">JAVA 21</span>
+                <button class="code-run-btn" id="run-code-btn" aria-label="Execute simulation" title="Run Code in Simulation">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  <span>Run</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="code-body" id="code-display" role="region" aria-label="Interactive Code View">
+              <!-- Rendered dynamically by script.js -->
+            </div>
+
+            <!-- Interactive Live Terminal Output Drawer -->
+            <div class="code-terminal" id="code-terminal" style="display: none;" aria-live="polite">
+              <div class="term-header">
+                <span>● TERMINAL EXECUTION LOG</span>
+                <span class="term-close-btn" id="term-close-btn" title="Close Terminal">✕</span>
+              </div>
+              <div class="term-body" id="term-logs"></div>
+            </div>
+
+            <div class="code-footer">
+              <div class="footer-metric">
+                <span class="dot"></span>
+                <span>Build: Passing</span>
+              </div>
+              <div class="github-mini-activity" title="Developer Commit Stream">
+                <span class="act-cell lvl-2"></span>
+                <span class="act-cell lvl-3"></span>
+                <span class="act-cell lvl-1"></span>
+                <span class="act-cell lvl-4"></span>
+                <span class="act-cell lvl-3"></span>
+                <span class="act-cell lvl-2"></span>
+                <span class="act-cell lvl-4"></span>
+                <span class="act-label">Active Commits</span>
+              </div>
+              <div class="footer-metric">
+                <span>Latency: </span>
+                <strong id="code-latency" style="color: #38bdf8;">12ms</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating Badge Bottom Left -->
+          <div class="hero-floating-card card-pos-2">
+            <div class="floating-icon" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div class="floating-meta">
+              <div class="title">Academic Standing</div>
+              <div class="desc">9.62 Sem 1 • 9.43 Sem 2 SGPA</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       2. ABOUT SECTION (Editorial Split Layout)
+       ========================================================================== -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Identity & Focus</span>
+        <h2 class="section-title">Engineering Foundations</h2>
+        <p class="section-desc">Merging core computer science problem solving with business systems insight.</p>
+      </div>
+
+      <div class="about-grid">
+        <!-- Left: Large Statement, Portrait Card & Metadata Chips -->
+        <div class="reveal">
+          <div class="about-statement">
+            "Curious about technology.<br>
+            Focused on building real skills."
+          </div>
+
+          <!-- Editorial Portrait Card -->
+          <div class="about-portrait-card">
+            <div class="portrait-image-wrapper">
+              <img src="profile.jpg" alt="Dinesh Ausaramal — Computer Science and Business Systems Student" class="portrait-img" loading="lazy">
+              <div class="portrait-badge">
+                <span class="badge-dot"></span>
+                <span>KIT CSBS • Class of 2028</span>
+              </div>
+            </div>
+            <div class="portrait-caption">
+              <strong>Dinesh Ausaramal</strong>
+              <span>Aspiring Software Developer • Chhatrapati Sambhajinagar & Kolhapur, India</span>
+            </div>
+          </div>
+
+          <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 24px;">
+            A strong grasp of fundamental concepts enables faster adaptation to modern engineering tooling. Rather than skimming surface libraries, my priority is writing sound, predictable, and maintainable software.
+          </p>
+
+          <div class="about-chips">
+            <span class="chip chip-accent">CSBS Undergraduate</span>
+            <span class="chip">2nd Year</span>
+            <span class="chip">KIT College of Engineering</span>
+            <span class="chip">Kolhapur, Maharashtra</span>
+            <span class="chip">India</span>
+          </div>
+        </div>
+
+        <!-- Right: Professional Narrative & Learning Tracker -->
+        <div class="reveal reveal-delay-1">
+          <div class="about-bio">
+            <p>
+              I am pursuing my Bachelor of Technology in <strong>Computer Science and Business Systems (CSBS)</strong> at KIT College of Engineering, Kolhapur. This specialized discipline bridges mathematical and computational depth with enterprise-grade business systems strategy.
+            </p>
+            <p>
+              My day-to-day focus centers on sharpening algorithmic problem-solving in <strong>Java</strong>, understanding relational database mechanics, and building full-stack web architectures designed for clarity and efficiency.
+            </p>
+          </div>
+
+          <!-- Currently Learning Showcase -->
+          <div class="learning-card">
+            <div class="learning-header">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+              <span>Currently Learning & Expanding</span>
+            </div>
+            <div class="learning-grid">
+              <div class="learning-item">
+                <div class="learning-title">DSA in Java</div>
+                <div class="learning-desc">Arrays, linked lists, trees, graphs, sorting, and algorithmic complexity.</div>
+              </div>
+              <div class="learning-item">
+                <div class="learning-title">Full-Stack Web</div>
+                <div class="learning-desc">Modular frontends, REST APIs, state coordination, and responsive layouts.</div>
+              </div>
+              <div class="learning-item">
+                <div class="learning-title">Git & GitHub</div>
+                <div class="learning-desc">Branch hygiene, clean atomic commits, semantic PRs, and team workflows.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       3. EDUCATION SECTION (Academic Showcase)
+       ========================================================================== -->
+  <section id="education" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Academic Record</span>
+        <h2 class="section-title">Academic Showcase</h2>
+        <p class="section-desc">Consistent academic commitment backed by strong core foundational scores.</p>
+      </div>
+
+      <div class="edu-wrapper">
+        <!-- Main Institutional Card -->
+        <div class="edu-main-card reveal">
+          <div>
+            <span class="edu-badge">AUTONOMOUS ENGINEERING INSTITUTE</span>
+            <h3 class="edu-institute">KIT College of Engineering, Kolhapur</h3>
+            <div class="edu-degree">Computer Science and Business Systems (CSBS)</div>
+            <div class="edu-meta">
+              <span>B.Tech • 2nd Year</span>
+              <span>•</span>
+              <span>2024 — 2028 (Expected)</span>
+            </div>
+          </div>
+
+          <div class="edu-curriculum">
+            <p>
+              The CSBS curriculum combines core computer science fundamentals—data structures, algorithms, database systems, and computer networks—with systems modeling, financial analysis, and organizational software architecture.
+            </p>
+          </div>
+        </div>
+
+        <!-- Academic Performance Metrics Grid -->
+        <div class="edu-metrics-grid">
+          <div class="metric-card reveal reveal-delay-1">
+            <div class="metric-number accent">9.62</div>
+            <div class="metric-label">Semester 1 SGPA</div>
+            <div class="metric-sub">Autonomous Examination</div>
+          </div>
+
+          <div class="metric-card reveal reveal-delay-2">
+            <div class="metric-number accent">9.43</div>
+            <div class="metric-label">Semester 2 SGPA</div>
+            <div class="metric-sub">Autonomous Examination</div>
+          </div>
+
+          <div class="metric-card reveal reveal-delay-1">
+            <div class="metric-number">76.50%</div>
+            <div class="metric-label">HSC (Class XII)</div>
+            <div class="metric-sub">Higher Secondary Certificate</div>
+          </div>
+
+          <div class="metric-card reveal reveal-delay-2">
+            <div class="metric-number">93.00%</div>
+            <div class="metric-label">SSC (Class X)</div>
+            <div class="metric-sub">Secondary School Certificate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       4. SKILLS SECTION (Interactive Technical Matrix)
+       ========================================================================== -->
+  <section id="skills" class="section">
+    <div class="container">
+      <div class="section-header reveal" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+        <div>
+          <span class="section-label">Technical Stack</span>
+          <h2 class="section-title">Skills & Competencies</h2>
+          <p class="section-desc">Practical programming capabilities and theoretical computing foundations.</p>
+        </div>
+
+        <!-- Skill Group Filter Buttons -->
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;" role="tablist" aria-label="Skills Filter">
+          <button class="sim-btn skill-filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="sim-btn skill-filter-btn" data-filter="prog" role="tab" aria-selected="false">Programming</button>
+          <button class="sim-btn skill-filter-btn" data-filter="web" role="tab" aria-selected="false">Web Dev</button>
+          <button class="sim-btn skill-filter-btn" data-filter="core" role="tab" aria-selected="false">Core CS</button>
+          <button class="sim-btn skill-filter-btn" data-filter="tools" role="tab" aria-selected="false">Tools</button>
+        </div>
+      </div>
+
+      <!-- Live Skills Search & Counter Filter -->
+      <div class="skills-filter-row">
+        <div class="skill-search-wrapper">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="skill-search-input" class="skill-search-input" placeholder="Search skills, topics, or concepts (e.g. Java, OOP, Git)..." aria-label="Search skills">
+          <span class="clear-search-btn" id="clear-skill-search" style="display: none;" title="Clear search">✕</span>
+        </div>
+        <div class="category-tag" id="skills-match-count">15 / 15 Skills Active</div>
+      </div>
+
+      <div class="skills-container">
+
+        <!-- Group 1: Programming Languages -->
+        <div class="skills-category" data-group="prog">
+          <div class="category-header">
+            <div class="category-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              <span>Programming Languages</span>
+            </div>
+            <span class="category-tag">CORE EXECUTION</span>
+          </div>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <div class="skill-icon">☕</div>
+              <div class="skill-meta">
+                <div class="skill-name">Java</div>
+                <div class="skill-desc">Primary language for DSA, object-oriented systems & algorithmic design.</div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">🐍</div>
+              <div class="skill-meta">
+                <div class="skill-name">Python</div>
+                <div class="skill-desc">Scripting, algorithmic prototyping, and computational logic.</div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">🗄️</div>
+              <div class="skill-meta">
+                <div class="skill-name">SQL</div>
+                <div class="skill-desc">Relational querying, schema modeling, joins, and indexing fundamentals.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Group 2: Web Development -->
+        <div class="skills-category" data-group="web">
+          <div class="category-header">
+            <div class="category-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              <span>Web Development</span>
+            </div>
+            <span class="category-tag">FRONTEND & SYSTEMS</span>
+          </div>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <div class="skill-icon">🌐</div>
+              <div class="skill-meta">
+                <div class="skill-name">HTML5</div>
+                <div class="skill-desc">Semantic markup, accessibility landmarks, and search structure.</div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">🎨</div>
+              <div class="skill-meta">
+                <div class="skill-name">CSS3</div>
+                <div class="skill-desc">Modern Flexbox/Grid, fluid typography, dark themes, and animations.</div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">⚡</div>
+              <div class="skill-meta">
+                <div class="skill-name">JavaScript (ES6+)</div>
+                <div class="skill-desc">DOM manipulation, async/await, modular code, and client interaction.</div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">🚀</div>
+              <div class="skill-meta">
+                <div class="skill-name">Full-Stack Development</div>
+                <div class="skill-desc">Connecting responsive frontends with REST endpoints and data persistence.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Group 3: Core Computer Science -->
+        <div class="skills-category" data-group="core">
+          <div class="category-header">
+            <div class="category-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+              <span>Core Computer Science</span>
+            </div>
+            <span class="category-tag">THEORETICAL RIGOR</span>
+          </div>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <div class="skill-icon">🧩</div>
+              <div class="skill-meta">
+                <div class="skill-name">Data Structures & Algorithms</div>
+                <div class="skill-desc">Complexity analysis, recursive patterns, graph traversal, and arrays.</div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">📦</div>
+              <div class="skill-meta">
+                <div class="skill-name">Object-Oriented Programming (OOP)</div>
+                <div class="skill-desc">Encapsulation, inheritance, polymorphism, and abstraction in Java.</div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">💾</div>
+              <div class="skill-meta">
+                <div class="skill-name">DBMS</div>
+                <div class="skill-desc">ACID properties, normalization, relational algebra, and transaction safety.</div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">⚙️</div>
+              <div class="skill-meta">
+                <div class="skill-name">Operating Systems</div>
+                <div class="skill-desc">Process scheduling, threads, memory paging, and concurrency concepts.</div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">📡</div>
+              <div class="skill-meta">
+                <div class="skill-name">Computer Networks</div>
+                <div class="skill-desc">OSI/TCP layers, routing protocols, HTTP/HTTPS handshake, and sockets.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Group 4: Tools & Workflow -->
+        <div class="skills-category" data-group="tools">
+          <div class="category-header">
+            <div class="category-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              <span>Tools & Environment</span>
+            </div>
+            <span class="category-tag">DEVELOPER PRODUCTIVITY</span>
+          </div>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <div class="skill-icon">🌱</div>
+              <div class="skill-meta">
+                <div class="skill-name">Git</div>
+                <div class="skill-desc">Distributed version control, branch management, merge conflict resolution.</div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">🐙</div>
+              <div class="skill-meta">
+                <div class="skill-name">GitHub</div>
+                <div class="skill-desc">Repository hosting, pull requests, issue tracking, and peer reviews.</div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">💻</div>
+              <div class="skill-meta">
+                <div class="skill-name">VS Code</div>
+                <div class="skill-desc">Custom debugging setup, keybindings, linting, and workflow optimization.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5. FEATURED PROJECT — LOADLOOP CASE STUDY
+       ========================================================================== -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Featured Architectural Case Study</span>
+        <h2 class="section-title">LoadLoop System Concept</h2>
+        <p class="section-desc">A deep dive into route matching, cargo volume reclamation, and transit cost-sharing.</p>
+      </div>
+
+      <div class="case-study-card reveal">
+        
+        <div class="project-badge-row">
+          <span class="concept-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            PROJECT CONCEPT • SIH 2026 PROTOTYPE
+          </span>
+          <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">
+            Logistics & Algorithmic Optimization
+          </span>
+        </div>
+
+        <h3 class="project-title">LOADLOOP</h3>
+        <div class="project-tagline">Smart Parcel & Vehicle Matching</div>
+        
+        <p class="project-statement">
+          "Turn empty vehicle space into smart delivery capacity."
+          Every day, millions of personal and commercial vehicles commute along predetermined routes with unoccupied boot and cargo space. LoadLoop matches commuters with pending route-adjacent deliveries, drastically lowering logistics emissions and offsetting travel expenses.
+        </p>
+
+        <!-- The Concept Equation Visualization -->
+        <div class="formula-container">
+          <div class="formula-label">Core Algorithmic Formulation</div>
+          <div class="formula-flow">
+            <div class="formula-node">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              <span>Available Vehicle</span>
+            </div>
+
+            <span class="formula-operator">+</span>
+
+            <div class="formula-node">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              <span>Empty Space</span>
+            </div>
+
+            <span class="formula-operator">+</span>
+
+            <div class="formula-node">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              <span>Parcel</span>
+            </div>
+
+            <span class="formula-operator">+</span>
+
+            <div class="formula-node">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
+              <span>Same Route</span>
+            </div>
+
+            <span class="formula-operator">=</span>
+
+            <div class="formula-node formula-result">
+              <span>SMART MATCH</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Route Simulator -->
+        <div class="simulator-panel">
+          <div class="sim-header">
+            <div class="sim-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-cyan);"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+              <span>Interactive Route Match Simulator</span>
+            </div>
+            <div class="sim-controls">
+              <button class="sim-btn active" data-scenario="urban">Urban Corridor</button>
+              <button class="sim-btn" data-scenario="highway">Highway Transit</button>
+              <button class="sim-btn" data-scenario="returnTrip">Return-Trip Reclaim</button>
+            </div>
+          </div>
+
+          <!-- Dynamic SVG Route Canvas -->
+          <div class="route-canvas-box" id="route-svg-box">
+            <!-- Dynamic SVG injected by script.js -->
+          </div>
+
+          <!-- Telemetry Metrics Bar -->
+          <div class="sim-metrics-bar">
+            <div class="sim-stat">
+              <span class="stat-lbl">Spatial Path Match</span>
+              <span class="stat-val" id="sim-stat-match">96.4%</span>
+            </div>
+            <div class="sim-stat">
+              <span class="stat-lbl">Capacity Utilized</span>
+              <span class="stat-val" id="sim-stat-capacity">78% Full</span>
+            </div>
+            <div class="sim-stat">
+              <span class="stat-lbl">Reclaimed Cargo Space</span>
+              <span class="stat-val" id="sim-stat-reclaimed">180 Liters</span>
+            </div>
+            <div class="sim-stat">
+              <span class="stat-lbl">Fuel & Transit Offset</span>
+              <span class="stat-val" id="sim-stat-offset">₹ 190 Saved</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive LoadLoop Economics & Carbon Offset Calculator -->
+        <div class="calculator-panel">
+          <div class="calc-header">
+            <div class="calc-badge">LIVE ALGORITHMIC SIMULATOR</div>
+            <h4 class="calc-title">Dynamic Route & Cost Offset Calculator</h4>
+            <p class="calc-sub">Simulate carrier freight savings, commuter compensation, and environmental footprint reduction.</p>
+          </div>
+          <div class="calc-grid">
+            <div class="calc-controls">
+              <div class="slider-group">
+                <div class="slider-label-row">
+                  <span>Transit Distance</span>
+                  <span class="slider-value" id="val-dist">35 km</span>
+                </div>
+                <input type="range" class="custom-range" id="input-dist" min="5" max="150" step="1" value="35">
+                <div class="range-marks"><span>5 km</span><span>75 km</span><span>150 km</span></div>
+              </div>
+
+              <div class="slider-group">
+                <div class="slider-label-row">
+                  <span>Parcel Cargo Mass</span>
+                  <span class="slider-value" id="val-weight">8 kg</span>
+                </div>
+                <input type="range" class="custom-range" id="input-weight" min="1" max="40" step="1" value="8">
+                <div class="range-marks"><span>1 kg</span><span>20 kg</span><span>40 kg</span></div>
+              </div>
+
+              <div class="slider-group">
+                <div class="slider-label-row">
+                  <span>Commuter Route Detour</span>
+                  <span class="slider-value" id="val-detour">1.8 km</span>
+                </div>
+                <input type="range" class="custom-range" id="input-detour" min="0.2" max="6.0" step="0.1" value="1.8">
+                <div class="range-marks"><span>0.2 km</span><span>3.0 km</span><span>6.0 km</span></div>
+              </div>
+            </div>
+
+            <div class="calc-results-card">
+              <div>
+                <div class="calc-card-header">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                  <span>PROJECTED REAL-TIME SAVINGS</span>
+                </div>
+                <div class="calc-kpi-grid">
+                  <div class="kpi-item">
+                    <span class="kpi-label">Traditional Freight</span>
+                    <span class="kpi-value old-cost" id="calc-orig-cost">₹ 290</span>
+                  </div>
+                  <div class="kpi-item highlight">
+                    <span class="kpi-badge">Save 52%</span>
+                    <span class="kpi-label">LoadLoop Shared Rate</span>
+                    <span class="kpi-value text-accent" id="calc-shared-cost">₹ 140</span>
+                  </div>
+                  <div class="kpi-item">
+                    <span class="kpi-label">Driver Fuel Offset</span>
+                    <span class="kpi-value text-green" id="calc-driver-earn">+ ₹ 105</span>
+                  </div>
+                  <div class="kpi-item">
+                    <span class="kpi-label">CO₂ Emissions Avoided</span>
+                    <span class="kpi-value text-cyan" id="calc-co2">2.4 kg</span>
+                  </div>
+                </div>
+              </div>
+              <div class="calc-insight">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                <span>Calculated via LoadLoop Spatial-Detour Matrix. Monetizes deadhead mileage by combining delivery routes with existing daily commutes.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Architectural Feature Pillars -->
+        <div class="features-grid">
+          <div class="feature-box reveal">
+            <div class="feature-icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+            </div>
+            <h4>Route Matching</h4>
+            <p>Calculates detour tolerance and geographical waypoint overlaps between commuter trajectories and parcel destinations.</p>
+          </div>
+
+          <div class="feature-box reveal reveal-delay-1">
+            <div class="feature-icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            </div>
+            <h4>Parcel & Volume Matching</h4>
+            <p>Matches 3D cubic dimensions and payload constraints against verified trunk and boot capacities in real time.</p>
+          </div>
+
+          <div class="feature-box reveal reveal-delay-2">
+            <div class="feature-icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h4>Cost Sharing</h4>
+            <p>Transparent cost distribution models that offset commuter fuel expenses while keeping shipping rates competitive.</p>
+          </div>
+
+          <div class="feature-box reveal">
+            <div class="feature-icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 19 21 12 17 5 21 12 2"/></svg>
+            </div>
+            <h4>Real-Time Tracking</h4>
+            <p>End-to-end waypoint checkpoints ensuring senders and recipients monitor cargo transitions securely.</p>
+          </div>
+
+          <div class="feature-box reveal reveal-delay-1">
+            <div class="feature-icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h4>Verified Users & Trust</h4>
+            <p>Identity verification, OTP parcel handover authentication, and mutual safety evaluations.</p>
+          </div>
+
+          <div class="feature-box reveal reveal-delay-2">
+            <div class="feature-icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h4>Ratings & Reputation</h4>
+            <p>Two-way peer reviews and delivery fidelity metrics preventing spam and fostering reliable courier partnerships.</p>
+          </div>
+
+          <div class="feature-box reveal">
+            <div class="feature-icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6"/><path d="M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+            </div>
+            <h4>Return-Trip Matching</h4>
+            <p>Monetizing empty return journeys (deadhead miles) by pre-booking return parcels on recurring corridors.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. HACKATHON SECTION (SIH 2026 Technical Showcase)
+       ========================================================================== -->
+  <section id="hackathon" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Collaborative Engineering</span>
+        <h2 class="section-title">SIH 2026 Internal Hackathon</h2>
+        <p class="section-desc">Leading a team of 6 engineers to prototype the LoadLoop platform under tight constraints.</p>
+      </div>
+
+      <div class="hackathon-card reveal">
+        <div class="hackathon-header">
+          <div class="hackathon-title-wrap">
+            <h3>Smart India Hackathon 2026</h3>
+            <p>Internal College Selection Hackathon • KIT Kolhapur</p>
+          </div>
+          <div class="team-badge-group">
+            <span class="team-pill team-pill-lead">Role: Team Leader</span>
+            <span class="team-pill">Team: 6 Members</span>
+            <span class="team-pill">Project: LoadLoop</span>
+          </div>
+        </div>
+
+        <p style="font-size: 1.05rem; color: var(--text-secondary); max-width: 800px; line-height: 1.65;">
+          As team leader, I coordinated problem-statement formulation, architectural flow diagrams, matching algorithm design, and UI wireframing. The project tackled logistical inefficiencies by connecting existing vehicular movement with small-parcel logistics.
+        </p>
+
+        <!-- Technical Flow Steps -->
+        <div class="hackathon-flow-grid">
+          <div class="flow-step reveal">
+            <div class="flow-step-num">PHASE 01</div>
+            <div class="flow-step-title">Problem Framing</div>
+            <div class="flow-step-desc">Quantified urban courier delays and analyzed deadhead freight waste across regional transit routes.</div>
+          </div>
+
+          <div class="flow-step reveal reveal-delay-1">
+            <div class="flow-step-num">PHASE 02</div>
+            <div class="flow-step-title">Matching Math</div>
+            <div class="flow-step-desc">Drafted greedy waypoint overlap models ensuring zero driver detour exceedance (> 15% distance limit).</div>
+          </div>
+
+          <div class="flow-step reveal reveal-delay-2">
+            <div class="flow-step-num">PHASE 03</div>
+            <div class="flow-step-title">Architecture & UI</div>
+            <div class="flow-step-desc">Designed high-fidelity user journeys for vehicle owners and parcel senders with secure OTP sign-off.</div>
+          </div>
+
+          <div class="flow-step reveal reveal-delay-3">
+            <div class="flow-step-num">PHASE 04</div>
+            <div class="flow-step-title">Technical Pitch</div>
+            <div class="flow-step-desc">Demonstrated working interactive simulator and defended algorithmic feasibility before evaluation panel.</div>
+          </div>
+        </div>
+
+        <div class="hackathon-summary reveal">
+          <strong style="color: var(--text-highlight);">Key Leadership Insight:</strong> Leading 6 engineers under strict hackathon deadlines reinforced the importance of clear technical scoping, modular delegation, and prioritizing core algorithmic value over cosmetic complexity.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       7. JOURNEY / ROADMAP
+       ========================================================================== -->
+  <section id="journey" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Growth & Milestones</span>
+        <h2 class="section-title">Engineering Journey</h2>
+        <p class="section-desc">A structured progression from fundamentals to real-world software development.</p>
+      </div>
+
+      <div class="journey-timeline">
+        <div class="journey-node reveal">
+          <div class="node-year">2024 — FOUNDATION</div>
+          <div class="node-title">CSBS at KIT Kolhapur</div>
+          <div class="node-desc">Began B.Tech curriculum. Built solid foundations in computational logic, procedural programming, and secured 9.62 SGPA in Sem 1.</div>
+        </div>
+
+        <div class="journey-node reveal reveal-delay-1">
+          <div class="node-year">2025 — CORE DEPTH</div>
+          <div class="node-title">DSA in Java & OOP</div>
+          <div class="node-desc">Strengthened object-oriented software engineering principles in Java. Implemented linear and hierarchical data structures with complexity benchmarks.</div>
+        </div>
+
+        <div class="journey-node reveal reveal-delay-2">
+          <div class="node-year">2025 — SYSTEMS EXPANSION</div>
+          <div class="node-title">Web & Database Layer</div>
+          <div class="node-desc">Expanded into modern full-stack web development (HTML, CSS, modern JavaScript) alongside relational schema design and SQL indexing.</div>
+        </div>
+
+        <div class="journey-node reveal reveal-delay-1">
+          <div class="node-year">2026 — LEADERSHIP</div>
+          <div class="node-title">SIH 2026 Hackathon</div>
+          <div class="node-desc">Led a 6-member team in the Smart India Hackathon internal round. Architected the LoadLoop system concept and matching models.</div>
+        </div>
+
+        <div class="journey-node reveal reveal-delay-2">
+          <div class="node-year">NOW — TARGET</div>
+          <div class="node-title">Internship Readiness</div>
+          <div class="node-desc">Refining production development practices, mastering Git workflows, and preparing to contribute to high-impact engineering teams.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       8. PHILOSOPHY & MINDSET SECTION
+       ========================================================================== -->
+  <section class="section" style="padding-top: 50px; padding-bottom: 50px;">
+    <div class="container">
+      <div class="philosophy-grid">
+        <div class="philosophy-card reveal">
+          <div class="philosophy-quote">"Learn something new every day."</div>
+          <div class="philosophy-meta">Continuous Compounding</div>
+        </div>
+
+        <div class="philosophy-card reveal reveal-delay-1">
+          <div class="philosophy-quote">"Build. Break. Learn. Improve."</div>
+          <div class="philosophy-meta">Iterative Development</div>
+        </div>
+
+        <div class="philosophy-card reveal reveal-delay-2">
+          <div class="philosophy-quote">"Focused on fundamentals. Curious about what's next."</div>
+          <div class="philosophy-meta">Principled Engineering</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       9. RESUME & CALL TO ACTION
+       ========================================================================== -->
+  <section id="resume-cta" class="section">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <h2 class="cta-title">Let's build something meaningful.</h2>
+        <p class="cta-desc">
+          Currently looking for opportunities to learn, contribute, and gain real-world development experience in modern software engineering teams.
+        </p>
+
+        <div class="cta-actions">
+          <button class="btn btn-primary" data-open-resume>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <span>View Resume</span>
+          </button>
+          <a href="resume.html" target="_blank" class="btn btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Download Clean PDF</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       10. CONTACT SECTION
+       ========================================================================== -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="contact-grid">
+        
+        <!-- Left: Contact Information -->
+        <div class="contact-info reveal">
+          <span class="section-label">Get in Touch</span>
+          <h3>Have an idea?<br>Let's talk.</h3>
+          <p>
+            Whether you are considering me for an internship role, an engineering discussion, or a hackathon collaboration, my inbox is always open.
+          </p>
+
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <div>
+                <strong style="display: block; color: var(--text-highlight);">Dinesh Ausaramal</strong>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">2nd Year CSBS Student</span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <strong style="display: block; color: var(--text-highlight);">Location</strong>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Chhatrapati Sambhajinagar & Kolhapur, Maharashtra, India</span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="color: var(--text-highlight);">dineshausaramal@example.com</span>
+                <button class="btn btn-secondary btn-sm" data-copy-email data-email="dineshausaramal@example.com" style="padding: 4px 8px; font-size: 0.75rem;">
+                  Copy
+                </button>
+              </div>
+            </div>
+
+            <div class="contact-item" style="margin-top: 10px;">
+              <div class="hero-socials" style="padding-top: 0;">
+                <a href="https://github.com/mrdineshausaramal-maker" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Dinesh on GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                  <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/dinesh-ausaramal-25290b387" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Dinesh on LinkedIn">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                  <span>LinkedIn</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Minimal Contact Form -->
+        <div class="reveal reveal-delay-1">
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-group">
+              <label for="form-name" class="form-label">Your Name</label>
+              <input type="text" id="form-name" class="form-input" placeholder="e.g. Rahul Sharma" required>
+            </div>
+
+            <div class="form-group">
+              <label for="form-email" class="form-label">Email Address</label>
+              <input type="email" id="form-email" class="form-input" placeholder="name@company.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="form-message" class="form-label">Message</label>
+              <textarea id="form-message" class="form-textarea" placeholder="Tell me about your team, internship opportunity, or idea..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              <span>Send Message</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       11. FOOTER
+       ========================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-content reveal">
+      <div class="footer-brand">
+        <div class="name">Dinesh Ausaramal</div>
+        <div class="desc">Computer Science & Business Systems • KIT College of Engineering, Kolhapur</div>
+      </div>
+
+      <div class="footer-links">
+        <a href="https://github.com/mrdineshausaramal-maker" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/dinesh-ausaramal-25290b387" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:dineshausaramal@example.com">Email</a>
+        <a href="resume.html" target="_blank">Resume</a>
+      </div>
+
+      <div class="footer-copy">
+        © 2026 Dinesh Ausaramal. Built with standards & care.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       RESUME MODAL DIALOG
+       ========================================================================== -->
+  <div class="modal-overlay" id="resume-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-text">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title" id="modal-title-text">Curriculum Vitae — Dinesh Ausaramal</div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <a href="resume.html" target="_blank" class="btn btn-secondary btn-sm" style="font-size: 0.75rem;">Open Fullscreen</a>
+          <button class="modal-close-btn" id="modal-close-btn" aria-label="Close resume modal">✕</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div style="border-bottom: 1px solid var(--border-subtle); padding-bottom: 20px; margin-bottom: 24px;">
+          <h2 style="font-size: 1.8rem; margin-bottom: 4px; color: var(--text-highlight);">Dinesh Ausaramal</h2>
+          <div style="color: var(--accent-cyan); font-weight: 500; font-size: 0.95rem; margin-bottom: 8px;">
+            B.Tech in Computer Science and Business Systems (CSBS)
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">
+            KIT College of Engineering, Kolhapur • Chhatrapati Sambhajinagar, Maharashtra, India
+          </div>
+        </div>
+
+        <div style="margin-bottom: 24px;">
+          <h4 style="font-family: var(--font-display); font-size: 1rem; color: var(--text-highlight); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em;">
+            Academic Highlights
+          </h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px;">
+            <div style="background: rgba(255,255,255,0.02); padding: 12px; border-radius: 6px; border: 1px solid var(--border-subtle);">
+              <div style="font-size: 1.3rem; font-weight: 700; color: #38bdf8;">9.62</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted);">Semester 1 SGPA</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); padding: 12px; border-radius: 6px; border: 1px solid var(--border-subtle);">
+              <div style="font-size: 1.3rem; font-weight: 700; color: #38bdf8;">9.43</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted);">Semester 2 SGPA</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); padding: 12px; border-radius: 6px; border: 1px solid var(--border-subtle);">
+              <div style="font-size: 1.3rem; font-weight: 700; color: #ffffff;">76.50%</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted);">HSC (12th)</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); padding: 12px; border-radius: 6px; border: 1px solid var(--border-subtle);">
+              <div style="font-size: 1.3rem; font-weight: 700; color: #ffffff;">93.00%</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted);">SSC (10th)</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 24px;">
+          <h4 style="font-family: var(--font-display); font-size: 1rem; color: var(--text-highlight); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em;">
+            Key Project & Hackathon
+          </h4>
+          <div style="margin-bottom: 14px;">
+            <div style="font-weight: 600; color: var(--text-primary); font-size: 0.95rem;">LoadLoop — Smart Parcel & Vehicle Matching</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">
+              Designed route matching algorithms and volumetric calculations to reclaim empty passenger vehicle cargo space. Smart India Hackathon (SIH 2026) Internal Round — Team Leader (6 members).
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 24px;">
+          <h4 style="font-family: var(--font-display); font-size: 1rem; color: var(--text-highlight); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em;">
+            Technical Proficiencies
+          </h4>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6;">
+            <strong>Languages:</strong> Java (DSA & OOP), Python, SQL<br>
+            <strong>Web:</strong> HTML5, CSS3, JavaScript, Full-Stack Architecture<br>
+            <strong>Core CS:</strong> Data Structures & Algorithms, DBMS, Operating Systems, Networks<br>
+            <strong>Tools:</strong> Git, GitHub, VS Code
+          </p>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 30px; border-top: 1px solid var(--border-subtle); padding-top: 20px;">
+          <a href="resume.html" target="_blank" class="btn btn-primary btn-sm">Download / Print PDF</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       COMMAND PALETTE MODAL (Ctrl+K / Cmd+K)
+       ========================================================================== -->
+  <div class="cmd-palette-backdrop" id="cmd-palette-modal" aria-hidden="true">
+    <div class="cmd-palette-card" role="dialog" aria-modal="true" aria-label="Command Palette">
+      <div class="cmd-palette-header">
+        <svg class="cmd-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="cmd-palette-input" class="cmd-search-input" placeholder="Type a section or command (e.g. projects, resume, theme, github)..." autocomplete="off" spellcheck="false">
+        <span class="cmd-esc-badge">ESC</span>
+      </div>
+      <div class="cmd-palette-body" id="cmd-palette-results">
+        <!-- Rendered dynamically via JavaScript -->
+      </div>
+      <div class="cmd-palette-footer">
+        <span><kbd>↑</kbd> <kbd>↓</kbd> to navigate</span>
+        <span><kbd>↵</kbd> to select</span>
+        <span><kbd>esc</kbd> to dismiss</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       INTERACTIVE SKILL DETAIL MODAL
+       ========================================================================== -->
+  <div class="skill-modal-backdrop" id="skill-modal" aria-hidden="true">
+    <div class="skill-modal-card" role="dialog" aria-modal="true" aria-labelledby="skill-modal-name">
+      <div class="skill-modal-header">
+        <div class="skill-modal-title-row">
+          <span class="skill-modal-icon" id="skill-modal-icon">☕</span>
+          <div>
+            <div class="skill-modal-name" id="skill-modal-name">Java</div>
+            <div class="skill-modal-domain" id="skill-modal-domain">PROGRAMMING LANGUAGES</div>
+          </div>
+        </div>
+        <button class="term-close-btn" id="skill-modal-close" aria-label="Close dialog">✕</button>
+      </div>
+      <div class="skill-modal-detail" id="skill-modal-desc">
+        Primary language for DSA, object-oriented systems & algorithmic design.
+      </div>
+      <div class="skill-modal-meta">
+        <div><strong>Key Application:</strong> <span id="skill-modal-app">Data Structures & LoadLoop algorithmic core</span></div>
+        <div><strong>Proficiency Focus:</strong> <span id="skill-modal-focus">Clean architecture, OOP paradigms, Big-O optimization</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast" id="toast-notification" role="status" aria-live="polite">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    <span id="toast-text">Notification message</span>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>

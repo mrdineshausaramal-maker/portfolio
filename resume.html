@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dinesh Ausaramal — Software Engineering Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090b0e;
+      --card-bg: #11141b;
+      --border: rgba(255, 255, 255, 0.1);
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-indigo: #6366f1;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .resume-paper {
+      width: 100%;
+      max-width: 850px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 48px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    }
+
+    .resume-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .back-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-family: 'JetBrains Mono', monospace;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .back-link:hover { text-decoration: underline; }
+
+    .print-btn {
+      background: linear-gradient(180deg, #4f46e5 0%, #4338ca 100%);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 500;
+    }
+
+    .print-btn:hover { background: #4338ca; }
+
+    header {
+      margin-bottom: 32px;
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #ffffff;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 6px;
+      margin: 28px 0 16px 0;
+    }
+
+    .item {
+      margin-bottom: 20px;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+
+    .item-title {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #ffffff;
+    }
+
+    .item-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .item-sub {
+      color: var(--accent);
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+    }
+
+    .item-bullets {
+      list-style-position: inside;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 12px;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+
+    .skills-cat {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .skills-val {
+      color: #e2e8f0;
+    }
+
+    .academics-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin-top: 10px;
+    }
+
+    .academics-table th, .academics-table td {
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      text-align: left;
+    }
+
+    .academics-table th {
+      background: rgba(255, 255, 255, 0.03);
+      color: #ffffff;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    @media print {
+      body { background: white; color: black; padding: 0; }
+      .resume-paper {
+        background: white;
+        border: none;
+        box-shadow: none;
+        color: black;
+        padding: 0;
+        max-width: 100%;
+      }
+      .resume-controls { display: none; }
+      h1, .item-title, .section-title { color: black; }
+      .subtitle, .item-sub { color: #0284c7; }
+      .contact-row, .item-bullets, .skills-cat, .item-date { color: #475569; }
+      .skills-val { color: #0f172a; }
+      .academics-table th, .academics-table td { border-color: #cbd5e1; }
+      .academics-table th { background: #f1f5f9; color: black; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="resume-paper">
+    <div class="resume-controls">
+      <a href="index.html" class="back-link">← Back to Portfolio</a>
+      <button class="print-btn" onclick="window.print()">Download / Print PDF</button>
+    </div>
+
+    <header>
+      <h1>Dinesh Ausaramal</h1>
+      <div class="subtitle">Computer Science & Business Systems Undergraduate • Software Developer</div>
+      <div class="contact-row">
+        <span>📍 Chhatrapati Sambhajinagar & Kolhapur, India</span>
+        <span>•</span>
+        <a href="https://github.com/mrdineshausaramal-maker" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">GitHub: mrdineshausaramal-maker</a>
+        <span>•</span>
+        <a href="https://www.linkedin.com/in/dinesh-ausaramal-25290b387" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">LinkedIn: dinesh-ausaramal-25290b387</a>
+      </div>
+    </header>
+
+    <div class="section-title">Education & Academic Distinction</div>
+    <div class="item">
+      <div class="item-header">
+        <div class="item-title">KIT College of Engineering, Kolhapur</div>
+        <div class="item-date">2024 — 2028 (Expected)</div>
+      </div>
+      <div class="item-sub">B.Tech in Computer Science and Business Systems (CSBS) — 2nd Year</div>
+      <table class="academics-table">
+        <thead>
+          <tr>
+            <th>Academic Milestone</th>
+            <th>Score / CGPA</th>
+            <th>Status / Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Semester 1 SGPA</td>
+            <td><strong>9.62 / 10.0</strong></td>
+            <td>Academic Excellence</td>
+          </tr>
+          <tr>
+            <td>Semester 2 SGPA</td>
+            <td><strong>9.43 / 10.0</strong></td>
+            <td>Academic Excellence</td>
+          </tr>
+          <tr>
+            <td>Higher Secondary Certificate (HSC)</td>
+            <td><strong>76.50%</strong></td>
+            <td>Science Stream</td>
+          </tr>
+          <tr>
+            <td>Secondary School Certificate (SSC)</td>
+            <td><strong>93.00%</strong></td>
+            <td>Distinction</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-title">Technical Skills</div>
+    <div class="skills-grid">
+      <div class="skills-cat">LANGUAGES</div>
+      <div class="skills-val">Java (Core, OOP, Collections), Python, SQL</div>
+    </div>
+    <div class="skills-grid">
+      <div class="skills-cat">WEB DEV</div>
+      <div class="skills-val">HTML5, CSS3, JavaScript (ES6+), Modern Full-Stack Web Architecture</div>
+    </div>
+    <div class="skills-grid">
+      <div class="skills-cat">CORE CS</div>
+      <div class="skills-val">Data Structures & Algorithms (DSA), OOP, DBMS, Operating Systems, Computer Networks</div>
+    </div>
+    <div class="skills-grid">
+      <div class="skills-cat">TOOLS & ENV</div>
+      <div class="skills-val">Git, GitHub, VS Code, Linux Command Line Basics</div>
+    </div>
+
+    <div class="section-title">Projects & System Concepts</div>
+    <div class="item">
+      <div class="item-header">
+        <div class="item-title">LoadLoop — Smart Parcel & Vehicle Matching Platform</div>
+        <div class="item-date">2026 • Project Concept & Prototype</div>
+      </div>
+      <div class="item-sub">Architectural Concept & Algorithmic Route Matching</div>
+      <ul class="item-bullets">
+        <li>Formulated the mathematical model matching scheduled personal commuter trips with pending on-route parcels: <code>Available Vehicle + Empty Space + Parcel + Same Route = Smart Match</code>.</li>
+        <li>Designed modular system requirements covering proximity waypoint interpolation, cubic volume cargo checking, dynamic cost-sharing math, and return-trip deadhead mileage elimination.</li>
+        <li>Implemented algorithmic matching logic and prototype spatial models demonstrating 80%+ empty capacity reclamation without requiring dedicated commercial logistics fleets.</li>
+      </ul>
+    </div>
+
+    <div class="section-title">Hackathons & Leadership</div>
+    <div class="item">
+      <div class="item-header">
+        <div class="item-title">Smart India Hackathon (SIH) 2026 — Internal College Hackathon</div>
+        <div class="item-date">2026</div>
+      </div>
+      <div class="item-sub">Role: Team Leader • 6 Members • Project: LoadLoop</div>
+      <ul class="item-bullets">
+        <li>Spearheaded a 6-member engineering team to design, architect, and pitch the LoadLoop smart logistics coordination system.</li>
+        <li>Guided technical direction, task allocation, system design diagrams, and core matching logic within intensive hackathon deadlines.</li>
+        <li>Communicated complex logistical algorithms and system feasibility to evaluation faculty and peer teams.</li>
+      </ul>
+    </div>
+
+    <div class="section-title">Current Focus & Objective</div>
+    <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+      Second-year CSBS undergraduate with rigorous foundations in algorithmic problem solving (Java DSA) and modern web systems. Combining software development proficiency with business systems analysis. Actively seeking internship opportunities to contribute meaningfully to production engineering teams.
+    </p>
+
+  </div>
+
+</body>
+</html>
