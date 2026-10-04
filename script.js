@@ -172,24 +172,23 @@ const codeSnippets = {
     { line: 12, tokens: [{ c: 'txt', t: '    }' }] },
     { line: 13, tokens: [{ c: 'txt', t: '}' }] }
   ],
-  sql: [
-    { line: 1, tokens: [{ c: 'cmt', t: '-- LoadLoop Spatial Nearest Vehicle & Cargo Match' }] },
-    { line: 2, tokens: [{ c: 'kw', t: 'WITH' }, { c: 'txt', t: ' ScheduledCorridors ' }, { c: 'kw', t: 'AS' }, { c: 'txt', t: ' (' }] },
-    { line: 3, tokens: [{ c: 'kw', t: '    SELECT' }, { c: 'txt', t: ' trip_id, driver_id, origin_geo, destination_geo,' }] },
-    { line: 4, tokens: [{ c: 'txt', t: '           boot_capacity_l, available_kg' }] },
-    { line: 5, tokens: [{ c: 'kw', t: '    FROM' }, { c: 'txt', t: ' vehicle_trips' }] },
-    { line: 6, tokens: [{ c: 'kw', t: '    WHERE' }, { c: 'txt', t: ' status = ' }, { c: 'str', t: "'ACTIVE'" }, { c: 'kw', t: ' AND' }, { c: 'txt', t: ' boot_capacity_l >= ' }, { c: 'num', t: '25' }] },
-    { line: 7, tokens: [{ c: 'txt', t: ')' }] },
-    { line: 8, tokens: [{ c: 'kw', t: 'SELECT' }, { c: 'txt', t: ' c.trip_id, c.driver_id, p.parcel_id,' }] },
-    { line: 9, tokens: [{ c: 'txt', t: '       ST_Distance(c.origin_geo, p.pickup_geo) ' }, { c: 'kw', t: 'AS' }, { c: 'txt', t: ' detour_meters' }] },
-    { line: 10, tokens: [{ c: 'kw', t: 'FROM' }, { c: 'txt', t: ' ScheduledCorridors c' }] },
-    { line: 11, tokens: [{ c: 'kw', t: 'JOIN' }, { c: 'txt', t: ' pending_parcels p ' }, { c: 'kw', t: 'ON' }, { c: 'txt', t: ' p.required_vol <= c.boot_capacity_l' }] },
-    { line: 12, tokens: [{ c: 'kw', t: 'ORDER BY' }, { c: 'txt', t: ' detour_meters ' }, { c: 'kw', t: 'ASC LIMIT' }, { c: 'num', t: ' 5;' }] }
+  js: [
+    { line: 1, tokens: [{ c: 'cmt', t: '// CargoLink Route Matcher & Fare Split Engine' }] },
+    { line: 2, tokens: [{ c: 'kw', t: 'export function' }, { c: 'fn', t: ' calculateSharedFare' }, { c: 'txt', t: '(distanceKm, weightKg, detourKm) {' }] },
+    { line: 3, tokens: [{ c: 'kw', t: '  const' }, { c: 'txt', t: ' baseFare = ' }, { c: 'num', t: '45' }, { c: 'txt', t: ' + (distanceKm * ' }, { c: 'num', t: '2.1' }, { c: 'txt', t: ');' }] },
+    { line: 4, tokens: [{ c: 'kw', t: '  const' }, { c: 'txt', t: ' weightSurcharge = weightKg * ' }, { c: 'num', t: '3.2' }, { c: 'txt', t: ';' }] },
+    { line: 5, tokens: [{ c: 'kw', t: '  const' }, { c: 'txt', t: ' detourCompensation = detourKm * ' }, { c: 'num', t: '6.0' }, { c: 'txt', t: ';' }] },
+    { line: 6, tokens: [] },
+    { line: 7, tokens: [{ c: 'kw', t: '  const' }, { c: 'txt', t: ' totalShared = Math.round(baseFare + weightSurcharge + detourCompensation);' }] },
+    { line: 8, tokens: [{ c: 'kw', t: '  const' }, { c: 'txt', t: ' driverEarnings = Math.round(totalShared * ' }, { c: 'num', t: '0.74' }, { c: 'txt', t: ');' }] },
+    { line: 9, tokens: [] },
+    { line: 10, tokens: [{ c: 'kw', t: '  return' }, { c: 'txt', t: ' { totalShared, driverEarnings, carbonSavedKg: (distanceKm * ' }, { c: 'num', t: '0.082' }, { c: 'txt', t: ').toFixed(' }, { c: 'num', t: '1' }, { c: 'txt', t: ') };' }] },
+    { line: 11, tokens: [{ c: 'txt', t: '}' }] }
   ],
   sh: [
     { line: 1, tokens: [{ c: 'cmt', t: '#!/usr/bin/env bash - System Diagnostics & Matching Engine' }] },
-    { line: 2, tokens: [{ c: 'fn', t: 'echo' }, { c: 'str', t: ' ">>> INITIALIZING LOADLOOP ENGINE CORE..."' }] },
-    { line: 3, tokens: [{ c: 'txt', t: 'ENGINE_VERSION=' }, { c: 'str', t: '"v1.4-sih-build"' }] },
+    { line: 2, tokens: [{ c: 'fn', t: 'echo' }, { c: 'str', t: ' ">>> INITIALIZING CARGOLINK ENGINE CORE..."' }] },
+    { line: 3, tokens: [{ c: 'txt', t: 'ENGINE_VERSION=' }, { c: 'str', t: '"v1.4-cargolink-core"' }] },
     { line: 4, tokens: [{ c: 'txt', t: 'JVM_FLAGS=' }, { c: 'str', t: '"-XX:+UseG1GC -Xms256m -Xmx512m"' }] },
     { line: 5, tokens: [{ c: 'fn', t: 'echo' }, { c: 'txt', t: ' "Thread Pool: 8 Workers (Virtual Threads)"' }] },
     { line: 6, tokens: [{ c: 'fn', t: 'echo' }, { c: 'txt', t: ' "Spatial Index: R-Tree Indexed & Cached"' }] },
@@ -240,9 +239,9 @@ function initHeroCodeTabs() {
     if (key === 'java') {
       langTag.textContent = 'JAVA 21';
       latencyVal.textContent = '12ms';
-    } else if (key === 'sql') {
-      langTag.textContent = 'POSTGRESQL';
-      latencyVal.textContent = '4ms';
+    } else if (key === 'js') {
+      langTag.textContent = 'JAVASCRIPT (ES6)';
+      latencyVal.textContent = '6ms';
     } else {
       langTag.textContent = 'BASH';
       latencyVal.textContent = '2ms';
@@ -863,17 +862,16 @@ function initCodeRunner() {
 [STATUS] Optimal vehicle match identified. Handshake verified.
 [METRIC] Execution time: <span class="term-bench">1.34 ms</span> | Memory: 16.8 MB heap`,
 
-    sql: `[EXEC] psql -U dinesh -d loadloop_spatial -f route_query.sql
-[QUERY] EXPLAIN ANALYZE SELECT * FROM spatial_corridors...
+    js: `[EXEC] node cargolink.js --calc-route --origin="KIT Kolhapur" --dest="Pune"
+[INIT] CargoLink Route Matcher module loaded (ES6).
 ------------------------------------------------------------
-> Sequential scan avoided: USING GIST(idx_vehicle_path_gist)
-> ST_DWithin(v.trajectory, p.destination, 2500) EVAL: <span class="term-success">TRUE</span>
-> Active Commuters on Corridor: 8 vehicles registered
-> Qualified Detour Candidates: <span class="term-highlight">3 verified matches</span>
-> Planning Time: 0.178 ms
-> Execution Time: <span class="term-bench">1.092 ms</span>
+> Corridor: KIT Kolhapur -> Pune (234.6 km)
+> Parcel Payload: 14.5 kg | Detour: 1.8 km
+> Computed Shared Fare: <span class="term-highlight">₹ 135.00</span>
+> Driver Earnings Offset: <span class="term-success">+ ₹ 100.00</span>
+> Estimated CO2 Prevented: <span class="term-bench">1.8 kg</span>
 ------------------------------------------------------------
-[RESULT] (3 rows returned) Relational integrity guaranteed.`,
+[STATUS] Real-time pricing dispatched to commuter.`,
 
     sh: `[EXEC] ./sys_status.sh
 [PROBE] Checking LoadLoop node health & telemetry status...
@@ -992,7 +990,7 @@ function initCommandPalette() {
     { id: 'education', label: 'Education & Scores (9.50 CGPA)', tag: 'Navigation', icon: '🎓', action: () => scrollToId('education') },
     { id: 'skills', label: 'Technical Stack & Skills Matrix', tag: 'Navigation', icon: '⚡', action: () => scrollToId('skills') },
     { id: 'projects', label: 'CargoLink AI / LoadLoop Platform', tag: 'Project', icon: '📦', action: () => scrollToId('projects') },
-    { id: 'certifications', label: 'Certifications & Achievements (Adobe & Flight Hack)', tag: 'Credentials', icon: '🏆', action: () => scrollToId('certifications') },
+    { id: 'certifications', label: 'Certifications & Achievements (Apna College, Adobe, Flight Hack)', tag: 'Credentials', icon: '🏆', action: () => scrollToId('certifications') },
     { id: 'journey', label: 'Engineering Journey Timeline', tag: 'Timeline', icon: '🗺️', action: () => scrollToId('journey') },
     { id: 'contact', label: 'Contact Information & Message Form', tag: 'Contact', icon: '✉️', action: () => scrollToId('contact') },
     { id: 'resume-modal', label: 'View Interactive Resume Overview', tag: 'Document', icon: '📄', action: () => openResumeModal() },
@@ -1152,103 +1150,75 @@ function initSkillsSearch() {
   const modalFocus = document.getElementById('skill-modal-focus');
 
   const skillDetails = {
-    'C': {
+    'C Programming': {
       icon: '⚡',
       domain: 'PROGRAMMING LANGUAGES',
       desc: 'Procedural fundamentals, memory management, pointers, and foundational computational problem-solving.',
       app: 'Systems programming principles, low-level data structure foundations',
       focus: 'Memory management, pointers, modular functions, algorithmic efficiency'
     },
-    'Problem Solving': {
-      icon: '🧠',
-      domain: 'CORE COMPUTER SCIENCE',
-      desc: 'Algorithmic thinking, mathematical decomposition, edge-case analysis, and optimal solution formulation.',
-      app: 'Competitive coding, technical interviews, CargoLink routing logic',
-      focus: 'Complexity bounds, edge-case handling, scalable problem breakdown'
-    },
-    'Java': {
+    'Java Programming': {
       icon: '☕',
       domain: 'PROGRAMMING LANGUAGES',
-      desc: 'Primary language for algorithmic problem solving, object-oriented software engineering, and the core routing matching engine of LoadLoop.',
-      app: 'Data Structures & Algorithms, LoadLoop geospatial matching prototype',
+      desc: 'Primary language for algorithmic problem solving, object-oriented software engineering, and the core routing matching engine of CargoLink AI.',
+      app: 'Data Structures & Algorithms, CargoLink geospatial matching prototype',
       focus: 'Object-Oriented Design, Collections Framework, Clean Architecture'
     },
-    'Python': {
+    'Basic Python': {
       icon: '🐍',
       domain: 'PROGRAMMING LANGUAGES',
       desc: 'Applied for computational prototyping, script automation, algorithmic experimentation, and data manipulation.',
       app: 'Rapid prototyping, data processing scripts, algorithmic logic testing',
-      focus: 'Modular code design, list comprehensions, functional constructs'
+      focus: 'Modular code design, control structures, list manipulations'
     },
-    'SQL': {
-      icon: '🗄️',
-      domain: 'PROGRAMMING LANGUAGES & STORAGE',
-      desc: 'Relational data modeling, query optimization, spatial data filtering, and ACID transaction guarantees.',
-      app: 'LoadLoop waypoint tables, schema normalization, multi-table joins',
-      focus: 'Schema modeling, relational algebra, primary/foreign key indexing'
-    },
-    'HTML5': {
+    'HTML': {
       icon: '🌐',
       domain: 'WEB DEVELOPMENT',
-      desc: 'Semantic web engineering, accessibility landmarks (ARIA), modern document hierarchies, and responsive layouts.',
+      desc: 'Semantic web engineering, accessibility landmarks, modern document hierarchies, and responsive layouts.',
       app: 'Portfolio website architecture, accessible UI structures',
       focus: 'Semantic markup, accessibility compliance, SEO best practices'
     },
-    'CSS3': {
+    'CSS': {
       icon: '🎨',
       domain: 'WEB DEVELOPMENT',
       desc: 'Advanced CSS layouts with Grid & Flexbox, fluid typography, dark space aesthetics, and smooth 60fps micro-interactions.',
       app: 'Dark-mode obsidian UI design, border-beam animations, fluid viewports',
-      focus: 'CSS Variables, hardware acceleration, zero-framework performance'
+      focus: 'CSS Variables, Flexbox/Grid, zero-framework performance'
     },
-    'JavaScript (ES6+)': {
+    'JavaScript': {
       icon: '⚡',
       domain: 'WEB DEVELOPMENT',
-      desc: 'Pure vanilla JavaScript engineering for interactive canvas particle engines, real-time calculators, and asynchronous workflows.',
-      app: 'Hero constellation canvas, interactive LoadLoop calculator, command palette',
+      desc: 'Pure vanilla JavaScript engineering for interactive canvas particle engines, real-time route calculators, and asynchronous workflows.',
+      app: 'Hero constellation canvas, interactive route calculator, command palette',
       focus: 'Vanilla JS DOM efficiency, async/await, modular functions'
     },
-    'Full-Stack Development': {
+    'Full-Stack Web (In Progress)': {
       icon: '🚀',
-      domain: 'WEB ARCHITECTURE',
-      desc: 'Understanding the complete lifecycle between client-side interfaces, RESTful API contracts, and persistent relational backends.',
-      app: 'End-to-end web system integration, client-server data flow',
-      focus: 'API contracts, state synchronization, separation of concerns'
+      domain: 'WEB ARCHITECTURE (IN PROGRESS)',
+      desc: 'Currently learning complete full-stack web development, connecting modern frontends with backend APIs and state management.',
+      app: 'End-to-end full-stack applications, client-server data flow',
+      focus: 'REST endpoints, full-stack architectures, separation of concerns'
     },
-    'Data Structures & Algorithms': {
+    'DSA in Java': {
       icon: '🧩',
-      domain: 'CORE COMPUTER SCIENCE',
-      desc: 'Rigorous algorithmic fundamentals including arrays, linked lists, trees, graphs, sorting, and Big-O computational complexity.',
-      app: 'Greedy algorithms, shortest-path trajectory matches, Java coding practice',
+      domain: 'CORE CONCEPTS (APNA COLLEGE CERTIFIED)',
+      desc: 'Certified by Apna College: arrays, recursion, backtracking, linked lists, stacks, queues, binary trees, BST, graphs, and Big-O computational complexity.',
+      app: 'Greedy algorithms, route trajectory matching, competitive coding practice',
       focus: 'Time/space complexity analysis, recursive thinking, optimal bounds'
     },
-    'Object-Oriented Programming (OOP)': {
+    'OOP (Object-Oriented Programming)': {
       icon: '📦',
-      domain: 'CORE COMPUTER SCIENCE',
-      desc: 'Software design principles centered on encapsulation, inheritance, polymorphism, and abstraction to produce maintainable codebases.',
-      app: 'Java enterprise patterns, modular system architecture',
-      focus: 'SOLID principles, clean interfaces, loose coupling'
+      domain: 'CORE CONCEPTS',
+      desc: 'Software design principles centered on encapsulation, inheritance, polymorphism, and abstraction implemented in Java to produce maintainable codebases.',
+      app: 'Java modular systems, clean class hierarchies, design patterns',
+      focus: 'Encapsulation, inheritance, polymorphism, abstraction'
     },
-    'DBMS': {
-      icon: '💾',
-      domain: 'CORE COMPUTER SCIENCE',
-      desc: 'Database Management Systems principles covering ACID transactions, relational schema normalization (1NF-3NF), and recovery models.',
-      app: 'Relational storage design, index tuning, transaction isolation',
-      focus: 'ACID guarantees, entity-relationship modeling, relational integrity'
-    },
-    'Operating Systems': {
-      icon: '⚙️',
-      domain: 'CORE COMPUTER SCIENCE',
-      desc: 'Foundational computing concepts including process scheduling, thread concurrency, virtual memory paging, and deadlock mitigation.',
-      app: 'Concurrency patterns, multi-threaded execution understanding',
-      focus: 'Process lifecycle, memory management, synchronization primitives'
-    },
-    'Computer Networks': {
-      icon: '📡',
-      domain: 'CORE COMPUTER SCIENCE',
-      desc: 'Network architecture across OSI and TCP/IP models, routing protocols, socket connections, and secure HTTPS handshakes.',
-      app: 'Network protocol analysis, client-server communication',
-      focus: 'TCP/IP stack, socket architecture, protocol headers'
+    'Problem Solving': {
+      icon: '🧠',
+      domain: 'CORE CONCEPTS',
+      desc: 'Algorithmic thinking, mathematical decomposition, edge-case analysis, and optimal solution formulation.',
+      app: 'Competitive coding, technical interviews, CargoLink routing logic',
+      focus: 'Complexity bounds, edge-case handling, scalable problem breakdown'
     },
     'Git': {
       icon: '🌱',

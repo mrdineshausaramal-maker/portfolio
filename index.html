@@ -191,7 +191,7 @@
               </div>
               <div class="code-tabs">
                 <button class="code-tab active" data-lang="java">LoadLoopMatcher.java</button>
-                <button class="code-tab" data-lang="sql">route_query.sql</button>
+                <button class="code-tab" data-lang="js">cargolink.js</button>
                 <button class="code-tab" data-lang="sh">sys_status.sh</button>
               </div>
               <div style="display: flex; align-items: center; gap: 8px;">
@@ -324,20 +324,20 @@
           <div class="learning-card">
             <div class="learning-header">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
-              <span>Currently Learning & Expanding</span>
+              <span>Current Focus & Next Horizons</span>
             </div>
             <div class="learning-grid">
               <div class="learning-item">
-                <div class="learning-title">DSA in Java</div>
-                <div class="learning-desc">Arrays, linked lists, trees, graphs, sorting, and algorithmic complexity.</div>
+                <div class="learning-title" style="color: var(--accent-green);">Full-Stack Web (In Progress)</div>
+                <div class="learning-desc">Currently learning end-to-end full-stack architectures, modern JavaScript backends, and responsive user experiences.</div>
               </div>
               <div class="learning-item">
-                <div class="learning-title">Full-Stack Web</div>
-                <div class="learning-desc">Modular frontends, REST APIs, state coordination, and responsive layouts.</div>
+                <div class="learning-title">DSA in Java (Completed)</div>
+                <div class="learning-desc">Certified by Apna College: arrays, recursion, binary trees, graphs, sorting, and algorithmic complexity.</div>
               </div>
               <div class="learning-item">
-                <div class="learning-title">Git & GitHub</div>
-                <div class="learning-desc">Branch hygiene, clean atomic commits, semantic PRs, and team workflows.</div>
+                <div class="learning-title">Core OOP & Dev Tools</div>
+                <div class="learning-desc">Java OOP principles, modular abstractions, Git version control, GitHub, and VS Code workflows.</div>
               </div>
             </div>
           </div>
@@ -358,30 +358,97 @@
         <p class="section-desc">Consistent academic commitment backed by strong core foundational scores.</p>
       </div>
 
-      <div class="edu-wrapper">
-        <!-- Main Institutional Card -->
-        <div class="edu-main-card reveal">
-          <div>
-            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px;">
-              <span class="edu-badge">AUTONOMOUS ENGINEERING INSTITUTE</span>
-              <span class="edu-badge" style="background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.3); color: var(--accent-cyan);">KOLHAPUR, MAHARASHTRA</span>
+      <div class="edu-wrapper" style="display: flex; flex-direction: column; gap: 24px;">
+        <!-- Detailed Educational Showcase Cards: College (B.Tech), 12th HSC, 10th SSC -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 20px;">
+          
+          <!-- Card 1: B.Tech (College) -->
+          <div class="edu-main-card reveal" style="padding: 28px;">
+            <div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px;">
+                <span class="edu-badge">AUTONOMOUS ENGINEERING INSTITUTE</span>
+                <span class="edu-badge" style="background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.3); color: var(--accent-cyan);">KOLHAPUR, MAHARASHTRA</span>
+              </div>
+              <h3 class="edu-institute" style="font-size: 1.45rem;">KIT's College of Engineering</h3>
+              <div class="edu-degree" style="font-size: 0.95rem; font-weight: 600; color: var(--accent-cyan);">B.Tech — Computer Science & Business Systems (CSBS)</div>
+              <div class="edu-meta" style="margin-bottom: 14px; flex-wrap: wrap; gap: 8px; font-size: 0.8rem;">
+                <span>2nd Year (2024 — 2028)</span>
+                <span>•</span>
+                <span style="color: var(--accent-green); font-weight: 700;">CGPA: 9.50</span>
+                <span>•</span>
+                <span>Sem 1: 9.62 | Sem 2: 9.43</span>
+              </div>
             </div>
-            <h3 class="edu-institute">KIT's College of Engineering, Kolhapur</h3>
-            <div class="edu-degree">B.Tech — Computer Science and Business Systems (CSBS)</div>
-            <div class="edu-meta">
-              <span>2nd Year (2024 — 2028)</span>
-              <span>•</span>
-              <span style="color: var(--accent-green); font-weight: 600;">Cumulative CGPA: 9.50</span>
-              <span>•</span>
-              <span>Home: Chhatrapati Sambhajinagar</span>
+            <div class="edu-curriculum" style="padding-top: 14px; font-size: 0.85rem;">
+              <p>
+                Core curriculum in Data Structures in Java, Object-Oriented Programming, Computational Logic, Algorithm Design, and business systems management.
+              </p>
+              <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px;">
+                <span class="cert-tag">CGPA: 9.50</span>
+                <span class="cert-tag">Autonomous</span>
+                <span class="cert-tag">Kolhapur</span>
+              </div>
             </div>
           </div>
 
-          <div class="edu-curriculum">
-            <p>
-              The CSBS curriculum blends core computing rigor—Data Structures in Java, Object-Oriented Programming, Database Systems, and Operating Systems—with business process management, data analytics, and enterprise systems architecture.
-            </p>
+          <!-- Card 2: 12th HSC (Junior College) -->
+          <div class="edu-main-card reveal reveal-delay-1" style="padding: 28px;">
+            <div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px;">
+                <span class="edu-badge" style="background: rgba(99, 102, 241, 0.1); border-color: rgba(99, 102, 241, 0.3); color: var(--accent-indigo);">JUNIOR COLLEGE (HSC)</span>
+                <span class="edu-badge" style="background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.3); color: var(--accent-cyan);">CHHATRAPATI SAMBHAJINAGAR</span>
+              </div>
+              <h3 class="edu-institute" style="font-size: 1.45rem;">Raje Shahaji Junior College</h3>
+              <div class="edu-degree" style="font-size: 0.95rem; font-weight: 600; color: var(--accent-indigo);">Higher Secondary Certificate (Class XII — Science)</div>
+              <div class="edu-meta" style="margin-bottom: 14px; flex-wrap: wrap; gap: 8px; font-size: 0.8rem;">
+                <span>HSC Board Examination</span>
+                <span>•</span>
+                <span style="color: var(--accent-green); font-weight: 700;">Score: 76.50%</span>
+                <span>•</span>
+                <span>Science Stream</span>
+              </div>
+            </div>
+            <div class="edu-curriculum" style="padding-top: 14px; font-size: 0.85rem;">
+              <p>
+                Completed higher secondary education in the Science stream with focus on Physics, Chemistry, and Mathematics, strengthening quantitative problem-solving and scientific reasoning.
+              </p>
+              <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px;">
+                <span class="cert-tag">76.50%</span>
+                <span class="cert-tag">Science Stream</span>
+                <span class="cert-tag">Chh. Sambhajinagar</span>
+              </div>
+            </div>
           </div>
+
+          <!-- Card 3: 10th SSC (High School) -->
+          <div class="edu-main-card reveal reveal-delay-2" style="padding: 28px;">
+            <div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px;">
+                <span class="edu-badge" style="background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3); color: var(--accent-green);">HIGH SCHOOL (SSC)</span>
+                <span class="edu-badge" style="background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.3); color: var(--accent-cyan);">CHHATRAPATI SAMBHAJINAGAR</span>
+              </div>
+              <h3 class="edu-institute" style="font-size: 1.45rem;">Raja Shivaji High School</h3>
+              <div class="edu-degree" style="font-size: 0.95rem; font-weight: 600; color: var(--accent-green);">Secondary School Certificate (Class X — SSC)</div>
+              <div class="edu-meta" style="margin-bottom: 14px; flex-wrap: wrap; gap: 8px; font-size: 0.8rem;">
+                <span>SSC Board Examination</span>
+                <span>•</span>
+                <span style="color: var(--accent-green); font-weight: 700;">Score: 93.00%</span>
+                <span>•</span>
+                <span>Distinction</span>
+              </div>
+            </div>
+            <div class="edu-curriculum" style="padding-top: 14px; font-size: 0.85rem;">
+              <p>
+                Graduated with 93.00% top-tier academic distinction, demonstrating disciplined work ethics, rigorous mathematical aptitude, and consistent academic dedication.
+              </p>
+              <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px;">
+                <span class="cert-tag">93.00% Distinction</span>
+                <span class="cert-tag">SSC Board</span>
+                <span class="cert-tag">Chh. Sambhajinagar</span>
+              </div>
+            </div>
+          </div>
+
         </div>
 
         <!-- Academic Performance Metrics Grid (With Locations) -->
@@ -449,7 +516,7 @@
           <input type="text" id="skill-search-input" class="skill-search-input" placeholder="Search skills, topics, or concepts (e.g. Java, OOP, Git)..." aria-label="Search skills">
           <span class="clear-search-btn" id="clear-skill-search" style="display: none;" title="Clear search">✕</span>
         </div>
-        <div class="category-tag" id="skills-match-count">17 / 17 Skills Active</div>
+        <div class="category-tag" id="skills-match-count">13 / 13 Skills Active</div>
       </div>
 
       <div class="skills-container">
@@ -461,35 +528,28 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
               <span>Programming Languages</span>
             </div>
-            <span class="category-tag">CORE EXECUTION</span>
+            <span class="category-tag">COMPLETED</span>
           </div>
           <div class="skills-grid">
             <div class="skill-item">
               <div class="skill-icon">⚡</div>
               <div class="skill-meta">
-                <div class="skill-name">C</div>
-                <div class="skill-desc">Procedural programming fundamentals, memory pointers, and low-level computational logic.</div>
+                <div class="skill-name">C Programming</div>
+                <div class="skill-desc">Procedural programming fundamentals, memory pointers, functions, and structured algorithmic logic.</div>
               </div>
             </div>
             <div class="skill-item">
               <div class="skill-icon">☕</div>
               <div class="skill-meta">
-                <div class="skill-name">Java</div>
-                <div class="skill-desc">Primary language for DSA, object-oriented systems & algorithmic design.</div>
+                <div class="skill-name">Java Programming</div>
+                <div class="skill-desc">Strong object-oriented fundamentals, robust modular code, and primary language for DSA.</div>
               </div>
             </div>
             <div class="skill-item">
               <div class="skill-icon">🐍</div>
               <div class="skill-meta">
-                <div class="skill-name">Python</div>
-                <div class="skill-desc">Scripting, algorithmic prototyping, and computational logic.</div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon">🗄️</div>
-              <div class="skill-meta">
-                <div class="skill-name">SQL</div>
-                <div class="skill-desc">Relational querying, schema modeling, joins, and indexing fundamentals.</div>
+                <div class="skill-name">Basic Python</div>
+                <div class="skill-desc">Core Python scripting, control structures, list manipulations, and computational logic.</div>
               </div>
             </div>
           </div>
@@ -502,55 +562,62 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
               <span>Web Development</span>
             </div>
-            <span class="category-tag">FRONTEND & SYSTEMS</span>
+            <span class="category-tag">FRONTEND & LEARNING</span>
           </div>
           <div class="skills-grid">
             <div class="skill-item">
               <div class="skill-icon">🌐</div>
               <div class="skill-meta">
-                <div class="skill-name">HTML5</div>
-                <div class="skill-desc">Semantic markup, accessibility landmarks, and search structure.</div>
+                <div class="skill-name">HTML</div>
+                <div class="skill-desc">Semantic document markup, accessibility standards, and clean page layouts.</div>
               </div>
             </div>
             <div class="skill-item">
               <div class="skill-icon">🎨</div>
               <div class="skill-meta">
-                <div class="skill-name">CSS3</div>
-                <div class="skill-desc">Modern Flexbox/Grid, fluid typography, dark themes, and animations.</div>
+                <div class="skill-name">CSS</div>
+                <div class="skill-desc">Modern Flexbox and Grid layouts, responsive UI styling, fluid typography, and animations.</div>
               </div>
             </div>
             <div class="skill-item">
               <div class="skill-icon">⚡</div>
               <div class="skill-meta">
-                <div class="skill-name">JavaScript (ES6+)</div>
-                <div class="skill-desc">DOM manipulation, async/await, modular code, and client interaction.</div>
+                <div class="skill-name">JavaScript</div>
+                <div class="skill-desc">Dynamic DOM manipulation, event-driven interactions, ES6+ syntax, and async workflows.</div>
               </div>
             </div>
             <div class="skill-item">
               <div class="skill-icon">🚀</div>
               <div class="skill-meta">
-                <div class="skill-name">Full-Stack Development</div>
-                <div class="skill-desc">Connecting responsive frontends with REST endpoints and data persistence.</div>
+                <div class="skill-name">Full-Stack Web (In Progress)</div>
+                <div class="skill-desc">Currently learning end-to-end full-stack architectures, modern JavaScript backends, and REST APIs.</div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Group 3: Core Computer Science -->
+        <!-- Group 3: Core Concepts -->
         <div class="skills-category" data-group="core">
           <div class="category-header">
             <div class="category-title">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-              <span>Core Computer Science</span>
+              <span>Core Concepts</span>
             </div>
-            <span class="category-tag">THEORETICAL RIGOR</span>
+            <span class="category-tag">FOUNDATIONAL MASTERY</span>
           </div>
           <div class="skills-grid">
             <div class="skill-item">
               <div class="skill-icon">🧩</div>
               <div class="skill-meta">
-                <div class="skill-name">Data Structures & Algorithms</div>
-                <div class="skill-desc">Complexity analysis, recursive patterns, graph traversal, and arrays in Java.</div>
+                <div class="skill-name">DSA in Java</div>
+                <div class="skill-desc">Apna College certified: arrays, linked lists, recursion, trees, graphs, sorting, and Big-O complexity.</div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">📦</div>
+              <div class="skill-meta">
+                <div class="skill-name">OOP (Object-Oriented Programming)</div>
+                <div class="skill-desc">Core encapsulation, inheritance, polymorphism, and abstraction implemented in Java.</div>
               </div>
             </div>
             <div class="skill-item">
@@ -558,34 +625,6 @@
               <div class="skill-meta">
                 <div class="skill-name">Problem Solving</div>
                 <div class="skill-desc">Algorithmic analysis, logical decomposition, edge-case resolution, and optimal computing.</div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon">📦</div>
-              <div class="skill-meta">
-                <div class="skill-name">Object-Oriented Programming (OOP)</div>
-                <div class="skill-desc">Encapsulation, inheritance, polymorphism, and abstraction in Java.</div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon">💾</div>
-              <div class="skill-meta">
-                <div class="skill-name">DBMS</div>
-                <div class="skill-desc">ACID properties, normalization, relational algebra, and transaction safety.</div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon">⚙️</div>
-              <div class="skill-meta">
-                <div class="skill-name">Operating Systems</div>
-                <div class="skill-desc">Process scheduling, threads, memory paging, and concurrency concepts.</div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon">📡</div>
-              <div class="skill-meta">
-                <div class="skill-name">Computer Networks</div>
-                <div class="skill-desc">OSI/TCP layers, routing protocols, HTTP/HTTPS handshake, and sockets.</div>
               </div>
             </div>
           </div>
@@ -612,14 +651,14 @@
               <div class="skill-icon">🐙</div>
               <div class="skill-meta">
                 <div class="skill-name">GitHub</div>
-                <div class="skill-desc">Repository hosting, pull requests, issue tracking, and peer reviews.</div>
+                <div class="skill-desc">Repository hosting, pull requests, issue tracking, and version management.</div>
               </div>
             </div>
             <div class="skill-item">
               <div class="skill-icon">💻</div>
               <div class="skill-meta">
                 <div class="skill-name">VS Code</div>
-                <div class="skill-desc">Custom debugging setup, keybindings, linting, and workflow optimization.</div>
+                <div class="skill-desc">Custom debugging setup, extensions, keybindings, and workflow optimization.</div>
               </div>
             </div>
           </div>
@@ -884,7 +923,27 @@
       </div>
 
       <div class="cert-grid reveal">
-        <!-- Certificate 1: Adobe Online Hackathon -->
+        <!-- Certificate 1: Apna College DSA in Java -->
+        <div class="cert-card">
+          <div>
+            <div class="cert-badge-row">
+              <span class="cert-pill academic">COURSE CERTIFICATION</span>
+              <span class="cert-issuer">Apna College</span>
+            </div>
+            <h3 class="cert-title">DSA in Java Certification</h3>
+            <p class="cert-desc">
+              Successfully completed comprehensive Data Structures & Algorithms in Java certification from Apna College, mastering arrays, recursion, backtracking, linked lists, stacks, queues, binary trees, BST, graphs, sorting algorithms, and space/time complexity analysis.
+            </p>
+          </div>
+          <div class="cert-tags">
+            <span class="cert-tag">Apna College</span>
+            <span class="cert-tag">DSA in Java</span>
+            <span class="cert-tag">Data Structures</span>
+            <span class="cert-tag">Algorithmic Mastery</span>
+          </div>
+        </div>
+
+        <!-- Certificate 2: Adobe Online Hackathon -->
         <div class="cert-card">
           <div>
             <div class="cert-badge-row">
@@ -1260,9 +1319,10 @@
             Certifications & Achievements
           </h4>
           <ul style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.7; margin-left: 18px;">
-            <li>Maintained an excellent CGPA of <strong>9.50</strong> at KIT's College of Engineering.</li>
-            <li>Earned a certificate from the <strong>Adobe Online Hackathon</strong>.</li>
-            <li>Earned a certificate from <strong>Flight Hack 2.0</strong>.</li>
+            <li>Certificate in <strong>Data Structures & Algorithms in Java</strong> — Apna College</li>
+            <li>Maintained an excellent CGPA of <strong>9.50</strong> in B.Tech at KIT's College of Engineering, Kolhapur</li>
+            <li>Earned a certificate from the <strong>Adobe Online Hackathon</strong></li>
+            <li>Earned a certificate from <strong>Flight Hack 2.0</strong></li>
           </ul>
         </div>
 
@@ -1271,9 +1331,9 @@
             Technical Skills
           </h4>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65; margin: 0;">
-            <strong>Programming:</strong> C, Java, Python, SQL<br>
-            <strong>Web Development:</strong> HTML, CSS, JavaScript, Full-Stack Concepts<br>
-            <strong>Core Concepts:</strong> DSA in Java, Problem Solving, OOP, DBMS, Operating Systems<br>
+            <strong>Programming:</strong> C Programming, Java Programming, Basic Python<br>
+            <strong>Web Development:</strong> HTML, CSS, JavaScript (Currently Learning Full-Stack Development)<br>
+            <strong>Core Concepts:</strong> DSA in Java (Apna College Certified), Object-Oriented Programming (OOP), Problem Solving<br>
             <strong>Tools:</strong> VS Code, Git, GitHub
           </p>
         </div>
