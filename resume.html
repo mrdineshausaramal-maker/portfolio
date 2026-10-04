@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dinesh Ausaramal — Software Engineering Resume</title>
+  <title>Dinesh Ravindra Ausaramal — Resume</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -16,6 +16,7 @@
       --text-muted: #94a3b8;
       --accent: #38bdf8;
       --accent-indigo: #6366f1;
+      --accent-green: #10b981;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -76,22 +77,25 @@
     .print-btn:hover { background: #4338ca; }
 
     header {
-      margin-bottom: 32px;
+      margin-bottom: 26px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
     }
 
     h1 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 2.2rem;
+      font-size: 2.1rem;
       font-weight: 700;
-      letter-spacing: -0.03em;
-      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+      color: #ffffff;
     }
 
     .subtitle {
       font-size: 1.05rem;
       color: var(--accent);
       font-weight: 500;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .contact-row {
@@ -103,19 +107,25 @@
       font-family: 'JetBrains Mono', monospace;
     }
 
+    .contact-row a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .contact-row a:hover { color: var(--accent); text-decoration: underline; }
+
     .section-title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: #ffffff;
       border-bottom: 1px solid var(--border);
       padding-bottom: 6px;
-      margin: 28px 0 16px 0;
+      margin: 26px 0 14px 0;
     }
 
     .item {
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .item-header {
@@ -134,7 +144,8 @@
     .item-date {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.8rem;
-      color: var(--text-muted);
+      color: var(--accent-green);
+      font-weight: 600;
     }
 
     .item-sub {
@@ -155,7 +166,7 @@
     .skills-grid {
       display: grid;
       grid-template-columns: 140px 1fr;
-      gap: 12px;
+      gap: 10px;
       font-size: 0.9rem;
       margin-bottom: 8px;
     }
@@ -218,52 +229,58 @@
     </div>
 
     <header>
-      <h1>Dinesh Ausaramal</h1>
-      <div class="subtitle">Computer Science & Business Systems Undergraduate • Software Developer</div>
+      <h1>DINESH RAVINDRA AUSARAMAL</h1>
+      <div class="subtitle">Computer Science & Business Systems Student | Aspiring Software Engineer</div>
       <div class="contact-row">
-        <span>📍 Chhatrapati Sambhajinagar & Kolhapur, India</span>
+        <span>📍 Chhatrapati Sambhajinagar, Maharashtra</span>
         <span>•</span>
-        <a href="https://github.com/mrdineshausaramal-maker" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">GitHub: mrdineshausaramal-maker</a>
+        <span>📞 +91 8080428634</span>
         <span>•</span>
-        <a href="https://www.linkedin.com/in/dinesh-ausaramal-25290b387" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">LinkedIn: dinesh-ausaramal-25290b387</a>
+        <a href="mailto:mr.dineshausaramal@gmail.com">mr.dineshausaramal@gmail.com</a>
+        <span>•</span>
+        <a href="https://www.linkedin.com/in/dinesh-ausaramal-25290b387" target="_blank" rel="noopener noreferrer">linkedin.com/in/dinesh-ausaramal-25290b387</a>
       </div>
     </header>
 
-    <div class="section-title">Education & Academic Distinction</div>
+    <div class="section-title">Profile</div>
+    <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.65;">
+      Hardworking and enthusiastic Computer Science and Business Systems student passionate about web development and continuous learning. Seeking opportunities to apply technical skills, gain practical experience, and grow as a technology professional.
+    </p>
+
+    <div class="section-title">Education</div>
     <div class="item">
       <div class="item-header">
-        <div class="item-title">KIT College of Engineering, Kolhapur</div>
-        <div class="item-date">2024 — 2028 (Expected)</div>
+        <div class="item-title">B.Tech – Computer Science & Business Systems (CSBS)</div>
+        <div class="item-date">CGPA: 9.50</div>
       </div>
-      <div class="item-sub">B.Tech in Computer Science and Business Systems (CSBS) — 2nd Year</div>
+      <div class="item-sub">KIT's College of Engineering, Kolhapur</div>
+      <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px;">
+        Semester 1 SGPA: <strong>9.62</strong> | Semester 2 SGPA: <strong>9.43</strong> | Cumulative CGPA: <strong>9.50</strong>
+      </div>
+
       <table class="academics-table">
         <thead>
           <tr>
-            <th>Academic Milestone</th>
-            <th>Score / CGPA</th>
-            <th>Status / Year</th>
+            <th>Level</th>
+            <th>Institution & Location</th>
+            <th>Score</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Semester 1 SGPA</td>
-            <td><strong>9.62 / 10.0</strong></td>
-            <td>Academic Excellence</td>
+            <td><strong>B.Tech (CSBS)</strong></td>
+            <td>KIT's College of Engineering, Kolhapur</td>
+            <td><strong>9.50 CGPA</strong></td>
           </tr>
           <tr>
-            <td>Semester 2 SGPA</td>
-            <td><strong>9.43 / 10.0</strong></td>
-            <td>Academic Excellence</td>
-          </tr>
-          <tr>
-            <td>Higher Secondary Certificate (HSC)</td>
+            <td><strong>HSC (Class XII)</strong></td>
+            <td>Raje Shahaji Junior College, Chhatrapati Sambhajinagar</td>
             <td><strong>76.50%</strong></td>
-            <td>Science Stream</td>
           </tr>
           <tr>
-            <td>Secondary School Certificate (SSC)</td>
+            <td><strong>SSC (Class X)</strong></td>
+            <td>Raja Shivaji High School, Chhatrapati Sambhajinagar</td>
             <td><strong>93.00%</strong></td>
-            <td>Distinction</td>
           </tr>
         </tbody>
       </table>
@@ -271,53 +288,57 @@
 
     <div class="section-title">Technical Skills</div>
     <div class="skills-grid">
-      <div class="skills-cat">LANGUAGES</div>
-      <div class="skills-val">Java (Core, OOP, Collections), Python, SQL</div>
+      <div class="skills-cat">PROGRAMMING</div>
+      <div class="skills-val">C, Java, Python, SQL</div>
     </div>
     <div class="skills-grid">
       <div class="skills-cat">WEB DEV</div>
-      <div class="skills-val">HTML5, CSS3, JavaScript (ES6+), Modern Full-Stack Web Architecture</div>
+      <div class="skills-val">HTML, CSS, JavaScript</div>
     </div>
     <div class="skills-grid">
-      <div class="skills-cat">CORE CS</div>
-      <div class="skills-val">Data Structures & Algorithms (DSA), OOP, DBMS, Operating Systems, Computer Networks</div>
+      <div class="skills-cat">CORE CONCEPTS</div>
+      <div class="skills-val">DSA in Java, Problem Solving, OOP, DBMS, Operating Systems</div>
     </div>
     <div class="skills-grid">
-      <div class="skills-cat">TOOLS & ENV</div>
-      <div class="skills-val">Git, GitHub, VS Code, Linux Command Line Basics</div>
+      <div class="skills-cat">TOOLS</div>
+      <div class="skills-val">VS Code, Git, GitHub</div>
     </div>
 
-    <div class="section-title">Projects & System Concepts</div>
+    <div class="section-title">Project</div>
     <div class="item">
       <div class="item-header">
-        <div class="item-title">LoadLoop — Smart Parcel & Vehicle Matching Platform</div>
-        <div class="item-date">2026 • Project Concept & Prototype</div>
+        <div class="item-title">CargoLink AI – Smart Parcel & Vehicle Matching Platform</div>
       </div>
-      <div class="item-sub">Architectural Concept & Algorithmic Route Matching</div>
+      <div class="item-sub">Logistics & Route Optimization Platform</div>
+      <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 8px;">
+        Developed a logistics platform that matches parcels with vehicles having available cargo space on the same route to optimize delivery efficiency and reduce transportation costs.
+      </p>
       <ul class="item-bullets">
-        <li>Formulated the mathematical model matching scheduled personal commuter trips with pending on-route parcels: <code>Available Vehicle + Empty Space + Parcel + Same Route = Smart Match</code>.</li>
-        <li>Designed modular system requirements covering proximity waypoint interpolation, cubic volume cargo checking, dynamic cost-sharing math, and return-trip deadhead mileage elimination.</li>
-        <li>Implemented algorithmic matching logic and prototype spatial models demonstrating 80%+ empty capacity reclamation without requiring dedicated commercial logistics fleets.</li>
+        <li>Smart vehicle-parcel matching based on spatial route overlap</li>
+        <li>Route-based delivery optimization and detour thresholds</li>
+        <li>Real-time parcel tracking and state checkpoint management</li>
+        <li>Verified users and two-way rating trust system</li>
       </ul>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--accent); margin-top: 6px;">
+        USP: Turn empty vehicle space into smart delivery capacity.
+      </div>
     </div>
 
-    <div class="section-title">Hackathons & Leadership</div>
-    <div class="item">
-      <div class="item-header">
-        <div class="item-title">Smart India Hackathon (SIH) 2026 — Internal College Hackathon</div>
-        <div class="item-date">2026</div>
-      </div>
-      <div class="item-sub">Role: Team Leader • 6 Members • Project: LoadLoop</div>
-      <ul class="item-bullets">
-        <li>Spearheaded a 6-member engineering team to design, architect, and pitch the LoadLoop smart logistics coordination system.</li>
-        <li>Guided technical direction, task allocation, system design diagrams, and core matching logic within intensive hackathon deadlines.</li>
-        <li>Communicated complex logistical algorithms and system feasibility to evaluation faculty and peer teams.</li>
-      </ul>
-    </div>
+    <div class="section-title">Achievements & Certifications</div>
+    <ul class="item-bullets" style="font-size: 0.875rem; gap: 6px;">
+      <li>Maintained an excellent CGPA of <strong>9.50</strong> in B.Tech at KIT's College of Engineering.</li>
+      <li>Earned a certificate from the <strong>Adobe Online Hackathon</strong>.</li>
+      <li>Earned a certificate from <strong>Flight Hack 2.0</strong>.</li>
+    </ul>
 
-    <div class="section-title">Current Focus & Objective</div>
+    <div class="section-title">Career Goal</div>
     <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
-      Second-year CSBS undergraduate with rigorous foundations in algorithmic problem solving (Java DSA) and modern web systems. Combining software development proficiency with business systems analysis. Actively seeking internship opportunities to contribute meaningfully to production engineering teams.
+      Passionate about Software Engineering and Web Development, I aspire to secure an internship where I can apply my technical skills, gain hands-on industry experience, and work on real-world challenges.
+    </p>
+
+    <div class="section-title">Languages</div>
+    <p style="font-size: 0.875rem; color: var(--text-muted);">
+      English • Hindi • Marathi • Sanskrit
     </p>
 
   </div>

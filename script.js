@@ -989,10 +989,10 @@ function initCommandPalette() {
   const commands = [
     { id: 'home', label: 'Home / Hero', tag: 'Navigation', icon: '🏠', action: () => scrollToId('hero') },
     { id: 'about', label: 'About Dinesh & Background', tag: 'Navigation', icon: '👤', action: () => scrollToId('about') },
-    { id: 'education', label: 'Education & Scores (9.62 SGPA)', tag: 'Navigation', icon: '🎓', action: () => scrollToId('education') },
+    { id: 'education', label: 'Education & Scores (9.50 CGPA)', tag: 'Navigation', icon: '🎓', action: () => scrollToId('education') },
     { id: 'skills', label: 'Technical Stack & Skills Matrix', tag: 'Navigation', icon: '⚡', action: () => scrollToId('skills') },
-    { id: 'projects', label: 'LoadLoop Architectural Case Study', tag: 'Project', icon: '📦', action: () => scrollToId('projects') },
-    { id: 'hackathon', label: 'SIH 2026 Internal Hackathon', tag: 'Hackathon', icon: '🏆', action: () => scrollToId('hackathon') },
+    { id: 'projects', label: 'CargoLink AI / LoadLoop Platform', tag: 'Project', icon: '📦', action: () => scrollToId('projects') },
+    { id: 'certifications', label: 'Certifications & Achievements (Adobe & Flight Hack)', tag: 'Credentials', icon: '🏆', action: () => scrollToId('certifications') },
     { id: 'journey', label: 'Engineering Journey Timeline', tag: 'Timeline', icon: '🗺️', action: () => scrollToId('journey') },
     { id: 'contact', label: 'Contact Information & Message Form', tag: 'Contact', icon: '✉️', action: () => scrollToId('contact') },
     { id: 'resume-modal', label: 'View Interactive Resume Overview', tag: 'Document', icon: '📄', action: () => openResumeModal() },
@@ -1152,6 +1152,20 @@ function initSkillsSearch() {
   const modalFocus = document.getElementById('skill-modal-focus');
 
   const skillDetails = {
+    'C': {
+      icon: '⚡',
+      domain: 'PROGRAMMING LANGUAGES',
+      desc: 'Procedural fundamentals, memory management, pointers, and foundational computational problem-solving.',
+      app: 'Systems programming principles, low-level data structure foundations',
+      focus: 'Memory management, pointers, modular functions, algorithmic efficiency'
+    },
+    'Problem Solving': {
+      icon: '🧠',
+      domain: 'CORE COMPUTER SCIENCE',
+      desc: 'Algorithmic thinking, mathematical decomposition, edge-case analysis, and optimal solution formulation.',
+      app: 'Competitive coding, technical interviews, CargoLink routing logic',
+      focus: 'Complexity bounds, edge-case handling, scalable problem breakdown'
+    },
     'Java': {
       icon: '☕',
       domain: 'PROGRAMMING LANGUAGES',
