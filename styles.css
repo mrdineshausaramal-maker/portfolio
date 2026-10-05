@@ -1960,7 +1960,7 @@ body.theme-light .hero-title .name-highlight {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(230px, 100%), 1fr));
   gap: 12px;
 }
 
@@ -2290,7 +2290,7 @@ body.theme-light .hero-title .name-highlight {
 /* Feature Pillars Grid */
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
   gap: 18px;
 }
 
@@ -2345,7 +2345,7 @@ body.theme-light .hero-title .name-highlight {
    ========================================================================== */
 .cert-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   gap: 24px;
 }
 
@@ -2576,7 +2576,7 @@ body.theme-light .hero-title .name-highlight {
    ========================================================================== */
 .journey-timeline {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
   gap: 16px;
   margin-top: 36px;
 }

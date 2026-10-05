@@ -1350,6 +1350,27 @@ function initSkillsSearch() {
       desc: 'Modern code editor workflow configured with debugging environments, linting rules, and productive developer shortcuts.',
       app: 'Primary local development environment for Java and web projects',
       focus: 'Debug toolchains, workspace efficiency, keyboard navigation'
+    },
+    'Professional Communication': {
+      icon: '🗣️',
+      domain: 'LEADERSHIP & SOFT SKILLS',
+      desc: 'Clear technical articulation, active listening, cross-functional team coordination, and structured technical documentation and email etiquette.',
+      app: 'Club management, technical presentations, team engineering, stakeholder communication',
+      focus: 'Technical articulation, active listening, written communication, team synthesis'
+    },
+    'Public Speaking & Presentations': {
+      icon: '🎙️',
+      domain: 'LEADERSHIP & SOFT SKILLS',
+      desc: 'Conducting engaging technical workshops, project pitches, student orientations, and articulate presentations delivered with clarity and confidence.',
+      app: 'CABSSA workshops, hackathon presentations, seminar deliveries',
+      focus: 'Public speaking, audience engagement, slide design, Q&A handling'
+    },
+    'Technical Co-Head (CABSSA)': {
+      icon: '🏛️',
+      domain: 'HONORABLE LEADERSHIP ROLE',
+      desc: 'Appointed Technical Co-Head of CABSSA (Computer Science and Business Systems Student Association) at KIT Kolhapur, spearheading coding initiatives, technical hackathons, and departmental workshops.',
+      app: 'CABSSA technical events, student developer mentorship, workshop curriculum',
+      focus: 'Technical leadership, event organization, peer mentorship, community building'
     }
   };
 
