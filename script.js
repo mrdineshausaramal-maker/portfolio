@@ -55,12 +55,12 @@ function initCursorSpotlight() {
   window.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
-  });
+  }, { passive: true });
 
   function render() {
-    currentX += (mouseX - currentX) * 0.12;
-    currentY += (mouseY - currentY) * 0.12;
-    spotlight.style.transform = `translate(${currentX}px, ${currentY}px)`;
+    currentX += (mouseX - currentX) * 0.14;
+    currentY += (mouseY - currentY) * 0.14;
+    spotlight.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
     requestAnimationFrame(render);
   }
   requestAnimationFrame(render);
@@ -73,13 +73,20 @@ function initCardSpotlight() {
   );
 
   cards.forEach((card) => {
+    let ticking = false;
     card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      card.style.setProperty('--mouse-x', `${x}px`);
-      card.style.setProperty('--mouse-y', `${y}px`);
-    });
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty('--mouse-x', `${x}px`);
+          card.style.setProperty('--mouse-y', `${y}px`);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
   });
 }
 
@@ -558,6 +565,29 @@ function initContactForm() {
     });
   });
 
+  const openGmailBtn = document.getElementById('open-gmail-btn');
+
+  // Direct Gmail composer
+  if (openGmailBtn) {
+    openGmailBtn.addEventListener('click', () => {
+      const name = document.getElementById('form-name')?.value.trim() || 'Portfolio Visitor';
+      const email = document.getElementById('form-email')?.value.trim() || 'Not specified';
+      const phone = document.getElementById('form-phone')?.value.trim() || '';
+      const msg = document.getElementById('form-message')?.value.trim() || 'Hi Dinesh, I saw your portfolio and would like to discuss an opportunity!';
+
+      const subject = `Portfolio Inquiry from ${name}`;
+      let body = `Hi Dinesh,\n\n${msg}\n\n---\nSender: ${name}\nEmail: ${email}`;
+      if (phone) {
+        body += `\nPhone: ${phone}`;
+      }
+
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=mr.dineshausaramal@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.open(gmailUrl, '_blank');
+      showToast('Opening Gmail directly to mr.dineshausaramal@gmail.com!');
+      showStatus('Draft opened directly in Gmail addressed to mr.dineshausaramal@gmail.com. Just click send in Gmail!', 'info');
+    });
+  }
+
   // Direct WhatsApp transmission to Dinesh's Mobile (+91 8080428634)
   if (whatsappBtn) {
     whatsappBtn.addEventListener('click', () => {
@@ -597,7 +627,7 @@ function initContactForm() {
       const submitBtn = document.getElementById('submit-contact-btn') || form.querySelector('button[type="submit"]');
       const originalHtml = submitBtn.innerHTML;
       submitBtn.disabled = true;
-      submitBtn.innerHTML = `<span>Sending directly to mr.dineshausaramal@gmail.com...</span>`;
+      submitBtn.innerHTML = `<span>Sending to mr.dineshausaramal@gmail.com...</span>`;
 
       // Live transmission via FormSubmit AJAX service
       fetch('https://formsubmit.co/ajax/mr.dineshausaramal@gmail.com', {
@@ -611,6 +641,7 @@ function initContactForm() {
           email: email,
           phone: phone || 'Not provided',
           message: msg,
+          _captcha: 'false',
           _subject: `New Portfolio Message from ${name} (${email})`
         })
       })
@@ -622,8 +653,8 @@ function initContactForm() {
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalHtml;
         form.reset();
-        showToast('Message sent to Dinesh at mr.dineshausaramal@gmail.com!');
-        showStatus('Thank you! Your message was delivered directly to Dinesh (mr.dineshausaramal@gmail.com).', 'success');
+        showToast('Message submitted to Dinesh at mr.dineshausaramal@gmail.com!');
+        showStatus('Thank you! Your message was submitted to Dinesh (mr.dineshausaramal@gmail.com). You can also click "Compose Directly in Gmail" or WhatsApp anytime.', 'success');
       })
       .catch(() => {
         // Fallback: If network restricts cross-origin fetch, automatically trigger email client pre-filled
@@ -632,7 +663,7 @@ function initContactForm() {
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalHtml;
         showToast('Opening your email app to send message to Dinesh!');
-        showStatus('Redirecting to your email client to send message to mr.dineshausaramal@gmail.com...', 'info');
+        showStatus('Opening your email client to send message directly to mr.dineshausaramal@gmail.com...', 'info');
       });
     });
   }
