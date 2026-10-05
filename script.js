@@ -22,6 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initResumeModal();
   initContactForm();
   initMobileDrawer();
+  initCardSpotlight();
+  initHeroMediaSwitcher();
 });
 
 /* ==========================================================================
@@ -39,7 +41,7 @@ function showToast(message) {
 }
 
 /* ==========================================================================
-   1. Subtle Cursor Spotlight (Desktop Only)
+   1. Subtle Cursor Spotlight & Card Glow Tracker (Desktop Only)
    ========================================================================== */
 function initCursorSpotlight() {
   const spotlight = document.getElementById('cursor-spotlight');
@@ -62,6 +64,23 @@ function initCursorSpotlight() {
     requestAnimationFrame(render);
   }
   requestAnimationFrame(render);
+}
+
+function initCardSpotlight() {
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+  const cards = document.querySelectorAll(
+    '.edu-main-card, .skill-item, .cert-card, .metric-card, .feature-box, .learning-item, .case-study-card, .about-portrait-card, .code-window, .hero-vision-card, .journey-node, .formula-col'
+  );
+
+  cards.forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
 }
 
 /* ==========================================================================
@@ -507,6 +526,8 @@ function initContactForm() {
   const copyEmailBtns = document.querySelectorAll('[data-copy-email]');
   const toast = document.getElementById('toast-notification');
   const toastText = document.getElementById('toast-text');
+  const whatsappBtn = document.getElementById('send-whatsapp-btn');
+  const statusBox = document.getElementById('contact-status-box');
 
   function showToast(message) {
     if (!toast || !toastText) return;
@@ -514,44 +535,105 @@ function initContactForm() {
     toast.classList.add('show');
     setTimeout(() => {
       toast.classList.remove('show');
-    }, 3500);
+    }, 4000);
+  }
+
+  function showStatus(message, type) {
+    if (!statusBox) return;
+    statusBox.className = '';
+    statusBox.classList.add(type === 'success' ? 'status-success' : type === 'info' ? 'status-info' : 'status-error');
+    statusBox.textContent = message;
   }
 
   copyEmailBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      const email = btn.getAttribute('data-email') || 'dineshausaramal@example.com';
-      navigator.clipboard.writeText(email).then(() => {
-        showToast(`Email copied: ${email}`);
+      const val = btn.getAttribute('data-email') || '';
+      if (!val) return;
+      navigator.clipboard.writeText(val).then(() => {
+        showToast(`Copied to clipboard: ${val}`);
       }).catch(() => {
-        showToast(`Email: ${email}`);
+        showToast(`Copied: ${val}`);
       });
     });
   });
 
+  // Direct WhatsApp transmission to Dinesh's Mobile (+91 8080428634)
+  if (whatsappBtn) {
+    whatsappBtn.addEventListener('click', () => {
+      const name = document.getElementById('form-name')?.value.trim() || 'Portfolio Visitor';
+      const email = document.getElementById('form-email')?.value.trim() || 'Not specified';
+      const phone = document.getElementById('form-phone')?.value.trim() || '';
+      const msg = document.getElementById('form-message')?.value.trim() || 'Hi Dinesh, I saw your portfolio and wanted to connect with you!';
+
+      let text = `Hi Dinesh!\n\nName: ${name}\nEmail: ${email}`;
+      if (phone) {
+        text += `\nPhone: ${phone}`;
+      }
+      text += `\n\nMessage:\n${msg}`;
+
+      const waUrl = `https://wa.me/918080428634?text=${encodeURIComponent(text)}`;
+      window.open(waUrl, '_blank');
+      showToast('Opening WhatsApp chat with Dinesh (+91 8080428634)...');
+      showStatus("Connecting to Dinesh's WhatsApp (+91 8080428634)...", 'success');
+    });
+  }
+
+  // Direct Email dispatch to Dinesh (mr.dineshausaramal@gmail.com)
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const name = document.getElementById('form-name')?.value.trim();
       const email = document.getElementById('form-email')?.value.trim();
+      const phone = document.getElementById('form-phone')?.value.trim();
       const msg = document.getElementById('form-message')?.value.trim();
 
       if (!name || !email || !msg) {
-        showToast('Please fill in all fields before sending.');
+        showToast('Please enter your Name, Email, and Message.');
+        showStatus('Please provide your Name, Email Address, and Message before sending.', 'error');
         return;
       }
 
-      const submitBtn = form.querySelector('button[type="submit"]');
+      const submitBtn = document.getElementById('submit-contact-btn') || form.querySelector('button[type="submit"]');
       const originalHtml = submitBtn.innerHTML;
       submitBtn.disabled = true;
-      submitBtn.innerHTML = `<span>Sending Message...</span>`;
+      submitBtn.innerHTML = `<span>Sending directly to mr.dineshausaramal@gmail.com...</span>`;
 
-      setTimeout(() => {
+      // Live transmission via FormSubmit AJAX service
+      fetch('https://formsubmit.co/ajax/mr.dineshausaramal@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          phone: phone || 'Not provided',
+          message: msg,
+          _subject: `New Portfolio Message from ${name} (${email})`
+        })
+      })
+      .then((res) => {
+        if (!res.ok) throw new Error('Network response not ok');
+        return res.json();
+      })
+      .then(() => {
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalHtml;
         form.reset();
-        showToast('Thank you, Dinesh has received your message!');
-      }, 700);
+        showToast('Message sent to Dinesh at mr.dineshausaramal@gmail.com!');
+        showStatus('Thank you! Your message was delivered directly to Dinesh (mr.dineshausaramal@gmail.com).', 'success');
+      })
+      .catch(() => {
+        // Fallback: If network restricts cross-origin fetch, automatically trigger email client pre-filled
+        const mailtoUri = `mailto:mr.dineshausaramal@gmail.com?subject=${encodeURIComponent('Portfolio Inquiry from ' + name)}&body=${encodeURIComponent('Hi Dinesh,\n\n' + msg + '\n\n---\nSender: ' + name + '\nEmail: ' + email + '\nPhone: ' + (phone || 'N/A'))}`;
+        window.location.href = mailtoUri;
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalHtml;
+        showToast('Opening your email app to send message to Dinesh!');
+        showStatus('Redirecting to your email client to send message to mr.dineshausaramal@gmail.com...', 'info');
+      });
     });
   }
 }
@@ -600,13 +682,10 @@ function initThemeToggle() {
   const toast = document.getElementById('toast-notification');
   const toastText = document.getElementById('toast-text');
 
-  // Check stored preference or system preference
-  if (storedTheme === 'light') {
-    document.body.classList.add('theme-light');
-  } else if (storedTheme === 'dark') {
+  // Default to light sky theme unless user specifically picked dark
+  if (storedTheme === 'dark') {
     document.body.classList.remove('theme-light');
-  } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-    // Optional system preference default
+  } else {
     document.body.classList.add('theme-light');
   }
 
@@ -1320,5 +1399,81 @@ function initSkillsSearch() {
     });
   }
 }
+
+/* ==========================================================================
+   16. Hero Media Switcher (Public Speaking Video & Vision Art)
+   ========================================================================== */
+function initHeroMediaSwitcher() {
+  const tabVideo = document.getElementById('tab-video');
+  const tabArtwork = document.getElementById('tab-artwork');
+  const video = document.getElementById('speaking-video');
+  const artwork = document.getElementById('vision-artwork');
+  const quoteText = document.getElementById('vision-quote-text');
+  const badge = document.getElementById('video-clip-badge');
+  const controls = document.getElementById('vision-video-controls');
+  const soundToggle = document.getElementById('video-sound-toggle');
+  const soundIcon = document.getElementById('sound-icon');
+  const soundLabel = document.getElementById('sound-label');
+  const playToggle = document.getElementById('video-play-toggle');
+  const playIcon = document.getElementById('play-icon');
+
+  if (!tabVideo || !tabArtwork || !video) return;
+
+  tabVideo.addEventListener('click', () => {
+    tabVideo.classList.add('active');
+    tabArtwork.classList.remove('active');
+    tabVideo.setAttribute('aria-selected', 'true');
+    tabArtwork.setAttribute('aria-selected', 'false');
+    video.style.display = 'block';
+    if (artwork) artwork.style.display = 'none';
+    if (badge) badge.style.display = 'inline-flex';
+    if (controls) controls.style.display = 'flex';
+    if (quoteText) quoteText.textContent = '“Youth is the backbone of our nation.” — Dinesh Ausaramal';
+    video.play().catch(() => {});
+  });
+
+  tabArtwork.addEventListener('click', () => {
+    tabArtwork.classList.add('active');
+    tabVideo.classList.remove('active');
+    tabArtwork.setAttribute('aria-selected', 'true');
+    tabVideo.setAttribute('aria-selected', 'false');
+    video.style.display = 'none';
+    video.pause();
+    if (artwork) artwork.style.display = 'block';
+    if (badge) badge.style.display = 'none';
+    if (controls) controls.style.display = 'none';
+    if (quoteText) quoteText.textContent = 'Discipline today builds the engineering breakthroughs of tomorrow.';
+  });
+
+  if (soundToggle) {
+    soundToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      video.muted = !video.muted;
+      if (video.muted) {
+        soundIcon.textContent = '🔇';
+        soundLabel.textContent = 'Unmute';
+      } else {
+        soundIcon.textContent = '🔊';
+        soundLabel.textContent = 'Mute';
+        video.volume = 1.0;
+        showToast('Playing speech audio: "Youth is the backbone of our nation"');
+      }
+    });
+  }
+
+  if (playToggle) {
+    playToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (video.paused) {
+        video.play();
+        playIcon.textContent = '⏸';
+      } else {
+        video.pause();
+        playIcon.textContent = '▶';
+      }
+    });
+  }
+}
+
 
 
